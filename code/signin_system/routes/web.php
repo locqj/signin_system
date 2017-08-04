@@ -15,4 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('index', 'AdminIndexController@index');
+Route::get('admin/index', 'AdminIndexController@index');
+Route::get('index', 'Index\IndexController@index');

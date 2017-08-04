@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>衡居房产记账结算系统</title>
+    <title>學習記錄系統</title>
     <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link rel="stylesheet" href="{{ asset('note/css/app.v2.css') }}" type="text/css" />
@@ -60,7 +60,7 @@
                         <li class="active">
                       <a href="index.html" class="active">
                         <i class="fa fa-dashboard icon"><b class="bg-danger"></b></i> 
-                        <span>Workset</span>
+                        <span>歷史記錄區</span>
                       </a>
                     </li>
                     <li >
@@ -70,25 +70,25 @@
                           <i class="fa fa-angle-down text"></i>
                           <i class="fa fa-angle-up text-active"></i>
                         </span>
-                        <span>Layouts</span>
+                        <span>管理</span>
                       </a>
                       <ul class="nav lt">
                         <li >
                           <a href="layout-c.html" >
                             <i class="fa fa-angle-right"></i>
-                            <span>Color option</span>
+                            <span>打卡活動管理</span>
                           </a>
                         </li>
                         <li >
                           <a href="layout-r.html" >
                             <i class="fa fa-angle-right"></i>
-                            <span>Right nav</span>
+                            <span>倒計時管理</span>
                           </a>
                         </li>
                         <li >
                           <a href="layout-h.html" >
                             <i class="fa fa-angle-right"></i>
-                            <span>H-Layout</span>
+                            <span>定時任務管理</span>
                           </a>
                         </li>
                       </ul>
