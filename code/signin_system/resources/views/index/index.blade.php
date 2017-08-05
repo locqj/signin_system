@@ -1,27 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<link rel="stylesheet" href="{{ asset('mui-master/examples/hello-mui/css/mui.min.css') }}">
-		<style type="text/css">
-			#list {
-				/*避免导航边框和列表背景边框重叠，看起来像两条边框似得；*/
-				margin-top: -1px;
-			}
-			
-		
-		</style>
-    </head>
-    <body>
-        <header class="mui-bar mui-bar-nav">
-			<!-- <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a> -->
-			<h1 class="mui-title">考研監督神器</h1>
-		</header>
-        <div class="mui-content">
+@extends('index.layouts.nav')
+
+@section('body')
         	<div class="mui-card">
 	        	<ul class="mui-table-view">
 					 <li class="mui-table-view-cell">倒計時<spen style="float: right">000</spen></li>
@@ -85,11 +64,7 @@
 					<a class="mui-card-link">查看</a>
 				</div>
 			</div>
-        </div>
-		<!--  -->
-
-    </body>
-    <script src="{{ asset('mui-master/examples/hello-mui/js/mui.min.js') }}"></script>
+	<script src="{{ asset('mui-master/examples/hello-mui/js/mui.min.js') }}"></script>
 	<script src="{{ asset('mui-master/examples/hello-mui/js/update.js') }}" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" charset="utf-8">
 		var slider = mui("#slider");
@@ -97,5 +72,5 @@
 			interval: 5000
 		});
 	</script>
-    
-</html>
+@endsection
+

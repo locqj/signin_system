@@ -17,3 +17,7 @@ Route::get('/', function () {
 
 Route::get('admin/index', 'AdminIndexController@index');
 Route::get('index', 'Index\IndexController@index');
+Route::get('index/actions', 'Index\ActionsController@index');
+Route::get('index/taglog', 'Index\TagLogController@index');
+
+
