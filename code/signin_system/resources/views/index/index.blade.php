@@ -60,8 +60,8 @@
 					</div>
 				</div>
 				<div class="mui-card-footer">
-					<a class="mui-card-link">開始</a>
-					<a class="mui-card-link">查看</a>
+					<a class="mui-card-link" href="index/actions">開始</a>
+					<a class="mui-card-link" href="index/listlog">查看</a>
 				</div>
 			</div>
 	<script src="{{ asset('mui-master/examples/hello-mui/js/mui.min.js') }}"></script>
