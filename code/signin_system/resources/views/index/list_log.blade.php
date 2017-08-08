@@ -13,22 +13,6 @@
 			早晨打卡
 		</div>
 	</li>
-	<li class="mui-table-view-cell">
-		<div class="mui-slider-right mui-disabled">
-			<a class="mui-btn mui-btn-red">删除</a>
-		</div>
-		<div class="mui-slider-handle">
-			早晨打卡
-		</div>
-	</li>
-	<li class="mui-table-view-cell">
-		<div class="mui-slider-right mui-disabled">
-			<a class="mui-btn mui-btn-red">删除</a>
-		</div>
-		<div class="mui-slider-handle">
-			早晨打卡
-		</div>
-	</li>
 </ul>
 </div>
 <h5 class="mui-content-padded" style="margin: 35px 10px 15px 10px;">Line</h5>
@@ -58,6 +42,24 @@
 					// }, 0);
 				}
 			});
+		});
+
+		/*ajax請求list*/
+
+		mui.ajax('/api/index/addaction',{
+			dataType:'json',//服务器返回json格式数据
+			type:'get',//HTTP请求类型
+			timeout:10000,//超时时间设置为10秒；
+			headers:{'Content-Type':'application/json'},	              
+			success:function(data){
+				if(data.code == '200') {
+					console.log(data.data);
+				}
+			},
+			error:function(xhr,type,errorThrown){
+				//异常处理；
+				console.log(type);
+			}
 		});
 	})(mui);
 </script>

@@ -62,6 +62,7 @@
 		});
 		mui('.mui-input-group').on('change', 'input', function() {
 			var value = this.checked?"true":"false";
+			console.log(value);
 			this.previousElementSibling.innerText = "checked："+value;
 		});
 	</script>

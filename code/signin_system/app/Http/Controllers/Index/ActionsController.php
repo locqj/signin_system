@@ -4,32 +4,41 @@ namespace App\Http\Controllers\Index;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Redirect;
 
 class ActionsController extends Controller
 {	
-	/**
-	 * [index 首頁]
-	 * @return [type] [description]
-	 */
-    public function index()
-    {
-    	return view('index.actions');
-    }
+	
+
+    
+
+    
 
     /**
-     * [listAction 打卡項目詳情]
+     * [postAddAction 添加打卡項目api]
      * @return [type] [description]
      */
-    public function listAction()
+    public function postAddAction()
     {
-    	return view('index.list_log');
+        $data = actions()->add();
+        return $data;
+    }
+    /**
+     * [postDelAction 刪除打卡項目api]
+     * @return [type] [description]
+     */
+    public function postDelAction()
+    {
+        $data = actions()->del();
+        return $data;
     }
 
-    /**
-     * [AddAction 添加打卡項目]
-     */
-    public function AddAction()
+    public function getListAction()
     {
-    	return view('index.list_create');	
+        $data = actions()->list();
+        return $data;
     }
+
+    
+
 }
