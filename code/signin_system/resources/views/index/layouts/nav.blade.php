@@ -28,8 +28,8 @@
 			@yield('body')
 		</div>
     </body>
-    <script src="{{ asset('mui-master/examples/hello-mui/js/mui.min.js') }}"></script>
-	<script src="{{ asset('mui-master/examples/hello-mui/js/update.js') }}" type="text/javascript" charset="utf-8"></script>
+  
+
 	
     
 </html>

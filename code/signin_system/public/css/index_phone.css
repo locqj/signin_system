@@ -5,3 +5,7 @@
 .time_tag, .time_set {
 	display: none;
 }
+
+.clone_block {
+	display: none;
+}
