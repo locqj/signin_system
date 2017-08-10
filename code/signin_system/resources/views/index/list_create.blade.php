@@ -78,11 +78,11 @@
 		</ul>
 		<div class="time_set">
 			<div class="mui-content-padded">
-				<button id="btn_tag_start" data-options="{&quot;type&quot;:&quot;time&quot;}" class="btn mui-btn mui-btn-block">開始時間</button>
+				<button id="btn_tag_start" data-options="{&quot;type&quot;:&quot;date&quot;,&quot;beginYear&quot;:2017,&quot;endYear&quot;:2037}" class="btn mui-btn mui-btn-block">開始時間</button>
 				<div id='tag_start' class="ui-alert"></div>
 			</div>
 			<div class="mui-content-padded">
-				<button id="btn_tag_end" data-options="{&quot;type&quot;:&quot;time&quot;}" class="btn mui-btn mui-btn-block">結束時間</button>
+				<button id="btn_tag_end" data-options="{&quot;type&quot;:&quot;date&quot;,&quot;beginYear&quot;:2017,&quot;endYear&quot;:2037}" class="btn mui-btn mui-btn-block">結束時間</button>
 				<div id='tag_end' class="ui-alert"></div>
 			</div>
 		</div>
@@ -316,7 +316,7 @@
 				timeout:10000,//超时时间设置为10秒；
 				//headers:{'Content-Type':'application/json'},	              
 				success:function(data){
-					if(data.code == '200') {
+					if(data.code == 201) {
 						mui.alert('添加成功');
 						window.location.href = '/index/listlog';
 					}

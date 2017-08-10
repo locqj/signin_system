@@ -2,10 +2,8 @@
 
 @section('body')
         	<div class="mui-card">
-	        	<ul class="mui-table-view">
-					 <li class="mui-table-view-cell">倒計時<spen style="float: right">000</spen></li>
-			         <li class="mui-table-view-cell">Item 2</li>
-			         <li class="mui-table-view-cell">Item 3</li>
+	        	<ul class="mui-table-view matters">
+					 <li class="mui-table-view-cell clone_block"><span></span><span style="float: right">test</span></li>
 				</ul>
 				<div id="slider" class="mui-slider" >
 				<div class="mui-slider-group mui-slider-loop">
@@ -66,10 +64,29 @@
 			</div>
 	<script src="{{ asset('mui-master/examples/hello-mui/js/mui.min.js') }}"></script>
 	<script src="{{ asset('mui-master/examples/hello-mui/js/update.js') }}" type="text/javascript" charset="utf-8"></script>
+	<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery-1.11.1.js"></script>
+
 	<script type="text/javascript" charset="utf-8">
 		var slider = mui("#slider");
 		slider.slider({
 			interval: 5000
+		});
+	</script>
+	<script type="text/javascript">
+		$.get('/api/index/getmatter', function(data) {
+			if(data.code == 200) {
+				var clone_block = $('.clone_block');
+				$.each(data.data, function(key, val) {
+					console.log(val.name);
+					var clo = clone_block.clone(true);
+	                $(clo).removeClass('clone_block');
+	                $(clo).children('span').eq(0).text(val.name);
+	                var msg = '還有'+val.daymatter+'天';
+	                $(clo).children('span').eq(1).text(msg);
+	                $(clo).show();
+	                $('.matters').append(clo);
+				})
+			}
 		});
 	</script>
 @endsection

@@ -40,6 +40,11 @@ function actions() {
 	return new App\Model\SignActions;
 }
 
+/*實例化day_matter*/
+function matters() {
+    return new App\Model\DaysMatter;
+}
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -48,9 +53,7 @@ Route::get('admin/index', 'AdminIndexController@index');
 /*首頁*/
 Route::get('index', 'Index\IndexController@index');
 /*項目進行頁面*/
-Route::get('index/actions', function() {
-	return view('index.actions');
-});
+Route::get('index/actions', 'Index\ActionsController@actions');
 /*項目記錄*/
 Route::get('index/taglog', 'Index\TagLogController@index');
 /*查看項目*/
@@ -64,10 +67,15 @@ Route::get('index/addaction', function() {
 
 /*提交打卡項目*/
 Route::post('api/index/addaction', 'Index\ActionsController@postAddAction');
-/*打卡項目刪除*/
-Route::post('api/index/delaction', 'Index\ActionsController@postDelAction');
-
+Route::get('api/index/delaction', 'Index\ActionsController@postDelAction');
 Route::get('api/index/listaction', 'Index\ActionsController@getListAction');
+
+Route::get('test', 'Index\ActionsController@getNowActions');
+Route::get('api/index/getmatter', 'Index\DaysMatterController@getDayMatters');
+Route::post('api/index/addmatter', 'Index\DaysMatterController@addDayMatters');
+Route::post('api/index/upmatter', 'Index\DaysMatterController@updateDayMatters');
+Route::get('api/index/delmatter', 'Index\DaysMatterController@delDayMatters');
+
 
 
 

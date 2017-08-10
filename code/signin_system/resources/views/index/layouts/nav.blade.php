@@ -22,7 +22,7 @@
     <body>
     	<header class="mui-bar mui-bar-nav">
 			<a class="mui-icon mui-icon-left-nav mui-pull-left" href="/index"></a>
-			<h1 class="mui-title">考研監督神器</h1>
+			<h1 class="mui-title">學習記錄工具</h1>
 		</header>
 		<div class="mui-content">
 			@yield('body')

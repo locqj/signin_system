@@ -26,7 +26,7 @@
 
 <script>
 	$.get('/api/index/listaction', function(data) {
-		if(data.code == '200') {
+		if(data.code == 200) {
 			var clone_block = $('.clone_block');
             $.each(data.data, function(key, val) {
                 var clo = clone_block.clone(true);
@@ -42,10 +42,8 @@
 	$('.btn-del').click(function() {
 		var id = $(this).attr('value');
 		var tag = $(this).parent().parent();
-		$.post('/api/index/delaction', {
-			'id': id
-		}, function(data) {
-			if(data.code == '200') {
+		$.get('/api/index/delaction?id='+id, function(data) {
+			if(data.code == 204) {
 				tag.hide();
 			}
 		});
