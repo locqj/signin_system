@@ -9,3 +9,30 @@
 .clone_block {
 	display: none;
 }
+
+/*index*/
+.clone_block-start {
+	display: none;
+}
+
+.li-start-label {
+	text-align: center;
+	font-size: 23px;
+	color: #8f8f94
+}
+
+
+/*actions*/
+.countdown {
+	display: none;
+}
+
+.mui-progressbar-success span {
+	background-color: #4cd964;
+}
+.mui-progressbar-warning span {
+	background-color: #f0ad4e;
+}
+.mui-progressbar-danger span {
+	background-color: red;
+}

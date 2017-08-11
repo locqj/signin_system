@@ -289,16 +289,10 @@
 		var result_end = $('#result_end').text();
 		var tag_start = $('#tag_start').text();
 		var tag_end = $('#tag_end').text();
-		console.log(tag_name);
-		console.log(tag_length);
-		console.log(result_start);
-		console.log(result_end);
-		console.log(tag_start);
-		console.log(tag_end);
 		if(!tag_name) {
-			mui.alert('打卡名稱不得爲空');
+			mui.toast('打卡名稱不得爲空');
 		} else if (tag_length < 0) {
-			mui.alert('打卡長度不得爲負數');
+			mui.toast('打卡長度不得爲負數');
 		} else {
 			/*提交*/
 			mui.ajax('/api/index/addaction',{
@@ -309,16 +303,17 @@
 					result_end: result_end,
 					start_time: tag_start,
 					end_time: tag_end
-
 				},
 				dataType:'json',//服务器返回json格式数据
 				type:'post',//HTTP请求类型
 				timeout:10000,//超时时间设置为10秒；
 				//headers:{'Content-Type':'application/json'},	              
 				success:function(data){
-					if(data.code == 201) {
-						mui.alert('添加成功');
+					if (data.code == 201) {
+						//mui.alert('添加成功');
 						window.location.href = '/index/listlog';
+					} else if (data.code == 400) {
+						mui.toast(data.msg);
 					}
 				},
 				error:function(xhr,type,errorThrown){
