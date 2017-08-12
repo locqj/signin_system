@@ -21,15 +21,13 @@
     </head>
     <body>
     	<header class="mui-bar mui-bar-nav">
-			<a class="mui-icon mui-icon-left-nav mui-pull-left" href="/index"></a>
+    	@if($_SERVER['PHP_SELF'] != '/index.php/index')
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		@endif
 			<h1 class="mui-title">學習記錄工具</h1>
 		</header>
 		<div class="mui-content">
 			@yield('body')
 		</div>
     </body>
-  
-
-	
-    
 </html>

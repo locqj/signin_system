@@ -10,12 +10,19 @@ class MoonCalculate extends Model
     public $timestamps = false;
 
     public function add()
-    {
-    	$this->name = rq('name');
-    	$this->code = $this->autoCode();
-    	if($this->save()) {
-    		return succ('success', 201);
-    	}
+    {   
+        $dist = $this
+            ->where('name', rq('name'))
+            ->where('status_del', 1)->exists();
+        if (!$dist) {
+            $this->name = rq('name');
+            $this->code = $this->autoCode();
+            if($this->save()) {
+                return succ('success', 201);
+            }
+        } else {
+            return err('該心情已存在！', 400);
+        }
     }
 
     public function del()
@@ -28,9 +35,15 @@ class MoonCalculate extends Model
 
     }
 
-    public function autoCode()
-    {	
-    	$tag = $this->count() + 1;
-    	return 'moon'.$tag;
+    public function list()
+    {
+        return $this->where('status_del', 1)->get();
     }
+    
+    public function autoCode()
+    {   
+        $tag = $this->count() + 1;
+        return 'moon'.$tag;
+    }
+
 }

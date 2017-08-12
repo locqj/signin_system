@@ -51,7 +51,7 @@ class SignActions extends Model
             $this->status = 4; //長期有效
         }
     	if($this->save()) {
-    		return succ('ok', 201);
+    		return succ('success', 201);
     	}
     }
 

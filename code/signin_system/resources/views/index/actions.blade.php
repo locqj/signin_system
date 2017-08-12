@@ -85,6 +85,13 @@
 		},1000);
 		
 	});
+	var time_length = {{ $data->time_length }} * 1000;
+    mui(document.body).on('tap', '.actions_start_1', function(e) {
+	    mui(this).button('loading');
+	    setTimeout(function() {
+	        mui(this).button('reset');
+	    }.bind(this), time_length);
+    });
 	
 </script>
 <script type="text/javascript"> 

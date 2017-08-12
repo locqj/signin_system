@@ -52,7 +52,11 @@ function moon() {
 
 /*實例化tag_calculate*/
 function tag() {
-    return new App\Model\TagCalcuate;
+    return new App\Model\TagCalculate;
+}
+/*實例化sign_log*/
+function signlog() {
+    return new App\Model\SignLog;
 }
 
 Route::get('/', function () {
@@ -87,5 +91,13 @@ Route::post('api/index/upmatter', 'Index\DaysMatterController@updateDayMatters')
 Route::get('api/index/delmatter', 'Index\DaysMatterController@delDayMatters');
 
 
+Route::post('api/index/addtag', 'Index\TagLogController@tagAdd');
+Route::get('api/index/deltag', 'Index\TagLogController@tagDel');
+Route::get('api/index/listtag', 'Index\TagLogController@tagList');
 
+Route::post('api/index/addmoon', 'Index\TagLogController@moonAdd');
+Route::get('api/index/delmoon', 'Index\TagLogController@moonDel');
+Route::get('api/index/listmoon', 'Index\TagLogController@moonList');
+
+Route::post('api/index/addtaglog', 'Index\TagLogController@tagLogAdd');
 
