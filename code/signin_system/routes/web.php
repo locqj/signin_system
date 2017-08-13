@@ -64,6 +64,8 @@ Route::get('/', function () {
 });
 /*後臺首頁*/
 Route::get('admin/index', 'AdminIndexController@index');
+
+Route::get('call', 'Index\IndexController@call');
 /*首頁*/
 Route::get('index', 'Index\IndexController@index');
 /*項目進行頁面*/

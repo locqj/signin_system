@@ -8,7 +8,7 @@ use Redirect;
 
 class IndexController extends Controller
 {
-	public function __construct()
+	public function call()
     {	
     	$url = base64_encode('http://www.locqj.top/index');
     	return Redirect::to('/oauth/${url}');
