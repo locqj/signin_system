@@ -7,7 +7,11 @@ use App\Http\Controllers\Controller;
 
 class IndexController extends Controller
 {
-
+	public function __construct()
+    {
+    	return Redirect::to('/oauth/index');
+    }
+    
     public function index()
     {
         return view('index.index');

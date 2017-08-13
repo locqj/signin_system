@@ -11,9 +11,4 @@ use Redirect;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
-    public function __construct()
-    {
-    	return Redirect::to('/oauth/index');
-    }
 }
