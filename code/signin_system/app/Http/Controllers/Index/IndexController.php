@@ -32,7 +32,7 @@ class IndexController extends Controller
     protected function preIndex()
     {
     	$wechat_user = session('wechat_user');
-    	if (!empty($wechat_user)) {
+    	if (empty($wechat_user)) {
 	    	$dist = clientuser()->findOpenid($wechat_user['id']);
 	    	if ($dist) {
 	    		$data = clientuser()->add($wechat_user['id'], $wechat_user['avatar'], $wechat_user['nickname']);
