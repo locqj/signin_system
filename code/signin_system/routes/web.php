@@ -111,3 +111,7 @@ Route::post('api/index/addtaglog', 'Index\TagLogController@tagLogAdd');
 /*授權接口wx*/
 Route::get('oauth', 'OAuthController@OAuth'); //請求
 Route::get('authcallback', 'OAuthController@authCallback'); //回調
+
+
+
+Route::get('test', 'Index\IndexController@test');
