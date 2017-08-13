@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Index;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Redirect;
 
 class IndexController extends Controller
 {
@@ -11,7 +12,7 @@ class IndexController extends Controller
     {
     	return Redirect::to('/oauth/index');
     }
-    
+
     public function index()
     {
         return view('index.index');
