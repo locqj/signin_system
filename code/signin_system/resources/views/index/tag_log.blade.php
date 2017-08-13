@@ -145,7 +145,6 @@
 				headers:{'Content-Type':'application/json'},	              
 				success:function(data){
 					if (data.code == 201) {
-						mui.toast('打卡成功');
 						window.location.href = '/index';
 					}
 				},

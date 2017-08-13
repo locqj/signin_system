@@ -101,3 +101,6 @@ Route::get('api/index/listmoon', 'Index\TagLogController@moonList');
 
 Route::post('api/index/addtaglog', 'Index\TagLogController@tagLogAdd');
 
+/*授權接口*/
+Route::get('oauth/{redirect}', 'OAuthController@OAuth'); //請求
+Route::get('authcallback/{redirect}', 'OAuthController@authCallback'); //回調

@@ -1,7 +1,11 @@
 @extends('index.layouts.nav')
 
 @section('body')
+<h5 class="mui-content-padded" style="margin: 35px 10px 15px 10px;">操作</h5>
+<div class="mui-content-padded">
+	    <a type="button" class="mui-btn mui-btn-block" href="{{ url('index/addaction') }}">新建項目</a>
 
+</div>
 <div class="mui-content-padded">
 <h5 class="mui-content-padded" style="margin: 35px 10px 15px 10px;">已有打卡項目</h5>
 <ul id="OA_task_1" class="mui-table-view">
@@ -15,11 +19,7 @@
 	</li>
 </ul>
 </div>
-<h5 class="mui-content-padded" style="margin: 35px 10px 15px 10px;">Line</h5>
-<div class="mui-content-padded">
-	    <a type="button" class="mui-btn mui-btn-block" href="{{ url('index/addaction') }}">新建項目</a>
 
-</div>
 
 <script src="{{ asset('mui-master/examples/hello-mui/js/mui.min.js') }}"></script>
 <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery-1.11.1.js"></script>

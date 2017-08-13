@@ -93,6 +93,8 @@
 	    }.bind(this), time_length);
     });
 	
+
+	
 </script>
 <script type="text/javascript"> 
 	/*獲取當前時間*/
