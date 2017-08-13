@@ -14,6 +14,6 @@ class Controller extends BaseController
 
     public function __construct()
     {
-    	return Redirect::to('oauth/index');
+    	return Redirect::to('/oauth/index');
     }
 }
