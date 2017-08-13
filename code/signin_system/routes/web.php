@@ -65,7 +65,6 @@ Route::get('/', function () {
 /*後臺首頁*/
 Route::get('admin/index', 'AdminIndexController@index');
 
-Route::get('call', 'Index\IndexController@call');
 /*首頁*/
 Route::get('index', 'Index\IndexController@index');
 /*項目進行頁面*/
@@ -103,6 +102,6 @@ Route::get('api/index/listmoon', 'Index\TagLogController@moonList');
 
 Route::post('api/index/addtaglog', 'Index\TagLogController@tagLogAdd');
 
-/*授權接口*/
+/*授權接口wx*/
 Route::get('oauth', 'OAuthController@OAuth'); //請求
 Route::get('authcallback', 'OAuthController@authCallback'); //回調

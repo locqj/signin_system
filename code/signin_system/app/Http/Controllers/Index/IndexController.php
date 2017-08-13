@@ -8,15 +8,18 @@ use Redirect;
 
 class IndexController extends Controller
 {
-	public function call()
+    public function index()
     {	
-    	return Redirect::to('/oauth');
+    	$wechat_user = session('wechat_user');
+    	return $wechat_user;
+    	return $wechat_user['id'];
+    	return $wechat_user['nickname'];
+    	return $wechat_user['avatar'];
+        //return view('index.index');
     }
 
-    public function index()
+    public function preIndex()
     {
-    	return session('wechat_user');
-        //return view('index.index');
 
     }
 }
