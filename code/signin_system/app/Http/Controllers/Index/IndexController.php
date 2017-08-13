@@ -15,7 +15,8 @@ class IndexController extends Controller
 
     public function index()
     {
-        return view('index.index');
+    	return session('wechat_user');
+        //return view('index.index');
 
     }
 }

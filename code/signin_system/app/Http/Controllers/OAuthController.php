@@ -57,7 +57,7 @@ class OAuthController extends Controller
 		$user = $oauth->user();
 		// return $user;
 		session(['wechat_user' => $user->toArray()]);
-		$value = $request->session()->get('cs_wechat_user');
+		$value = $request->session()->get('wechat_user');
 		$redirect = base64_decode($redirect);
 		header('location:'.$redirect); 
 	}
