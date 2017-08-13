@@ -32,6 +32,9 @@ class OAuthController extends Controller
 		if (empty($wechat_user)) {
 			session(['target_url' => 'http://www.locqj.top/index']);
 			return $oauth->redirect();
+		} else{
+			//$redirect = base64_decode($redirect.$wechat_user->id);
+			header('location:http://www.locqj.top/index');
 		}
 	}
 
