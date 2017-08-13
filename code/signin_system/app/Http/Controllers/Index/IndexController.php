@@ -9,8 +9,9 @@ use Redirect;
 class IndexController extends Controller
 {
 	public function __construct()
-    {
-    	return Redirect::to('/oauth/index');
+    {	
+    	$url = base64_encode('http://www.locqj.top/index');
+    	return Redirect::to('/oauth/${url}');
     }
 
     public function index()
