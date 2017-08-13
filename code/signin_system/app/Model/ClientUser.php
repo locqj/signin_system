@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+date_default_timezone_set("Asia/Shanghai");
 
 class ClientUser extends Model
 {
@@ -14,6 +15,7 @@ class ClientUser extends Model
         $this->openid = $openid;
         $this->head_img = $head_img;
         $this->nickname = $nickname;
+        $this->created_at = date('Y-m-d h:i:s');
         if ($this->save()) {
             return succ('success', 201);
         }

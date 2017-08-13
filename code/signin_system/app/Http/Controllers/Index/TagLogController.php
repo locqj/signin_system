@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Index;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class TagLogController extends IndexController
+class TagLogController extends Controller
 {
     public function index($code)
     {	

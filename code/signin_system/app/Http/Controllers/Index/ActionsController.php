@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Redirect;
 
-class ActionsController extends IndexController
+class ActionsController extends Controller
 {	
 	
     public function actions($code)

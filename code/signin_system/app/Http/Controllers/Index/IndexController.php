@@ -8,9 +8,9 @@ use Redirect;
 
 class IndexController extends Controller
 {	
-	public function __construct()
+	public function call()
     {
-    	header('location:http://www.locqj.top/oauth');
+    	return Redirect::to('/oauth');
     }
 
 
