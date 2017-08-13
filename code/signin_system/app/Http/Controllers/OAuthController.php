@@ -10,9 +10,9 @@ use EasyWeChat\Foundation\Application;
 class OAuthController extends Controller
 {
    	/**
-	 * 常超发起网页授权
+	 * 发起网页授权
 	 */
-	public function OAuth($redirect, Request $request)
+	public function OAuth(Request $request)
 	{
 		$config = [
 		  	'debug'  => true,
@@ -20,7 +20,7 @@ class OAuthController extends Controller
 		    'secret' => 'c7884b1f999e803fb438e9b4e96b51eb',
 		    'oauth' => [
 				'scopes'   => ['snsapi_userinfo'],
-				'callback' => '/authcallback/'.$redirect,
+				'callback' => '/authcallback',
 			],
 		];
 
@@ -30,19 +30,16 @@ class OAuthController extends Controller
 		$wechat_user = $request->session()->get('wechat_user');
 		// 未登录
 		if (empty($wechat_user)) {
-			// session(['target_url' => 'profile']);
+			session(['target_url' => 'http://www.locqj.top/index']);
 			return $oauth->redirect();
-		} else{
-			$redirect = base64_decode($redirect.$wechat_user->id);
-			header('location:'.$redirect);
 		}
 	}
 
 	/**
-	 * 常超网页授权回调地址
+	 * 网页授权回调地址
 	 * @return [type] [description]
 	 */
-	public function authCallback($redirect, Request $request)
+	public function authCallback(Request $request)
 	{
 		$config = [
 		  	'debug'  => false,
@@ -58,7 +55,7 @@ class OAuthController extends Controller
 		// return $user;
 		session(['wechat_user' => $user->toArray()]);
 		$value = $request->session()->get('wechat_user');
-		$redirect = base64_decode($redirect);
+		$redirect = session('target_url');
 		header('location:'.$redirect); 
 	}
 }

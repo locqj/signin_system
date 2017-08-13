@@ -10,8 +10,7 @@ class IndexController extends Controller
 {
 	public function call()
     {	
-    	$url = base64_encode('http://www.locqj.top/index');
-    	return Redirect::to('/oauth/${url}');
+    	return Redirect::to('/oauth');
     }
 
     public function index()
