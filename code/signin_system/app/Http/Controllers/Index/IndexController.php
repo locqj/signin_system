@@ -16,9 +16,15 @@ class IndexController extends Controller
 
     public function index()
     {	
-    	$this->preIndex();
-        return view('index.index');
+    	$dist = $this->preIndex();
+    	if ($dist) {
+	        return view('index.index');
+    	} else {
+    		return 'ok';
+    	}
     }
+
+
     /**
      * [preIndex 將微信信息保存]
      * @return [type] [description]
@@ -26,9 +32,14 @@ class IndexController extends Controller
     protected function preIndex()
     {
     	$wechat_user = session('wechat_user');
-    	$dist = clientuser()->findOpenid($wechat_user['id']);
-    	if ($dist) {
-    		$data = clientuser()->add($wechat_user['id'], $wechat_user['avatar'], $wechat_user['nickname']);
+    	if (!empty($wechat_user)) {
+	    	$dist = clientuser()->findOpenid($wechat_user['id']);
+	    	if ($dist) {
+	    		$data = clientuser()->add($wechat_user['id'], $wechat_user['avatar'], $wechat_user['nickname']);
+	    	}
+	    	return 1;
+    	} else {
+    		return 0;
     	}
     }
 }
