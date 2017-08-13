@@ -59,6 +59,11 @@ function signlog() {
     return new App\Model\SignLog;
 }
 
+/*實例化clientuser*/
+function clientuser() {
+    return new App\Model\ClientUser;
+}
+
 Route::get('/', function () {
     return view('welcome');
 });

@@ -28,7 +28,7 @@ class ClientUser extends Model
     {
         $data = $this->where('openid', $openid)->exists();
         if($data) {
-            return 0;
+            return 0; //存在返回0 告訴業務層不需要add
         } else {
             return 1;
         }

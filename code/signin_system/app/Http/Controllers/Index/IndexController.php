@@ -16,16 +16,19 @@ class IndexController extends Controller
 
     public function index()
     {	
-    	$wechat_user = session('wechat_user');
-    	//return $wechat_user;
-    	return $wechat_user['id'];
-    	return $wechat_user['nickname'];
-    	return $wechat_user['avatar'];
-        //return view('index.index');
+    	$this->preIndex();
+        return view('index.index');
     }
-
-    public function preIndex()
+    /**
+     * [preIndex 將微信信息保存]
+     * @return [type] [description]
+     */
+    protected function preIndex()
     {
-
+    	$wechat_user = session('wechat_user');
+    	$dist = clientuser()->findOpenid($wechat_user['id']);
+    	if ($dist) {
+    		$data = clientuser()->add($wechat_user['id'], $wechat_user['avatar'], $wechat_user['nickname']);
+    	}
     }
 }
