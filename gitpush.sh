@@ -7,6 +7,6 @@ echo $date1+$time1
 echo $date
 git add .
 git status
-git commit -m $date1' '$time1' everyday last push'
+git commit -m $date1' '$time1' test wx_getuser_info'
 git push
 
