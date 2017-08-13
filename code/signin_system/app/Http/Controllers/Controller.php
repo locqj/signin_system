@@ -12,8 +12,5 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function __construct()
-    {
-    	header('location:http://www.locqj.top/oauth');
-    }
+
 }

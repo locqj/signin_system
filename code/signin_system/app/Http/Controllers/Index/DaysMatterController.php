@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 
 date_default_timezone_set("Asia/Shanghai");
 
-class DaysMatterController extends Controller
+class DaysMatterController extends IndexController
 {	
 	/**
 	 * [getDayMatters 根據openid來拿]
