@@ -16,7 +16,7 @@ class DaysMatterController extends Controller
 	 */
     public function getDayMatters() 
     {
-    	$openid = 'xxx'; // test
+    	$openid = session('user_id');
     	$data = matters()
     		->where('openid', $openid)
 			->where('status_del', 1)

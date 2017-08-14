@@ -17,7 +17,7 @@ class DaysMatter extends Model
 		$this->year = $date_explode[0];
 		$this->month = $date_explode[1];
 		$this->day = $date_explode[2];
-		$this->openid = 'xxx';
+		$this->openid = session('user_id');;
 		if($this->save()) {
 			return succ('success', '200');
 		}

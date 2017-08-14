@@ -18,8 +18,9 @@ class SignActions extends Model
      * @return [type] [description]
      */
     public function list()
-    {
-    	$data = $this->where('status_del', 1)->where('openid', 'xxx')->get();
+    {   
+        $openid = session('user_id');
+    	$data = $this->where('status_del', 1)->where('openid', $openid)->get();
     	return suc($data, 200);
     }
 
@@ -31,9 +32,10 @@ class SignActions extends Model
 
     public function add()
     {   
+        $openid = session('user_id');
     	$this->code = $this->autoCode();
     	$this->name = rq('name');
-        $this->openid = 'xxx'; /*test*/
+        $this->openid = $openid;
     	$this->start_time = rq('start_time');
     	$this->end_time = rq('end_time');
     	$this->time_length = rq('time_length');

@@ -9,10 +9,11 @@ class SignLog extends Model
 {
     protected $table = 'sign_log';
     public $timestamps = false;
+    protected $openid = session('user_id');
 
     public function add($status_log)
-    {
-        $this->openid = 'xxx';
+    {   
+        $this->openid = $openid;
         $this->tag_code = rq('tag_code');
         $this->moon_code = rq('moon_code');
         $this->action_code = rq('action_code');
@@ -33,9 +34,9 @@ class SignLog extends Model
      */
     public function upStatusTag()
     {   
-        $dist = $this->where('openid', 'xxx')->where('status_tag', 1)->exists();
+        $dist = $this->where('openid', $openid)->where('status_tag', 1)->exists();
         if ($dist) {
-            $data = $this->where('openid', 'xxx')->where('status_tag', 1)->update(['status_tag' => 0]);
+            $data = $this->where('openid', $openid)->where('status_tag', 1)->update(['status_tag' => 0]);
         }
             return succ('success', 201);
     }
@@ -50,7 +51,7 @@ class SignLog extends Model
     public function getStatusLog($year, $month, $day)
     {
         $data = $this->where('year', $year)
-            ->where('month', $month)->where('openid', 'xxx')
+            ->where('month', $month)->where('openid', $openid)
             ->where('day', $day)->first();
         if ($data) {
             return suc($data->status_log, 200);

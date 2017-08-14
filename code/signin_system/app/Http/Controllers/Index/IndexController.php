@@ -33,18 +33,12 @@ class IndexController extends Controller
     	$openid = $wechat_user['id'];
     	$avatar = $wechat_user['avatar'];
     	$nickname = $wechat_user['nickname'];
+    	session('user_id', $openid);
     	$dist = clientuser()->findOpenid($openid);
     	if ($dist) {
     		$data = clientuser()->add($openid, $avatar, $nickname);
     	}
     	return 1;
-    }
-
-    public function test()
-    {	
-    	$openid = 'saddddddddddddddddddddddddddddddddddddasdad';
-    	$dist = clientuser()->findOpenid($openid);
-    	return $dist;
     }
 
 }
