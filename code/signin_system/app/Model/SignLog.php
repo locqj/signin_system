@@ -26,8 +26,6 @@ class SignLog extends Model
         $this->created_at = date('Y-m-d H:i:s');
         if ($this->save()) {
             return succ('success', 201);
-        } else {
-            return err('系統錯誤！', 400);
         }
     }
     /**

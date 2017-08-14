@@ -52,10 +52,10 @@ class SignActions extends Model
         } else {
             $this->status = 4; //長期有效
         }
-    	if($this->save()) {
+    	if ($this->save()) {
     		return succ('success', 201);
     	} else {
-            return err('系統錯誤！', 400);
+            return error('系統錯誤', 400);
         }
     }
 
@@ -66,8 +66,6 @@ class SignActions extends Model
         $data->status_del = 0;
         if ($data->save()) {
 	        return suc($data, 204);
-        } else {
-            return err('系統錯誤！', 400);
         }
 
     }

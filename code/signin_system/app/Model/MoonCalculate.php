@@ -19,8 +19,6 @@ class MoonCalculate extends Model
             $this->code = $this->autoCode();
             if ($this->save()) {
                 return succ('success', 201);
-            } else {
-                return err('系統錯誤！', 400);
             }
         } else {
             return err('該心情已存在！', 400);
@@ -33,9 +31,7 @@ class MoonCalculate extends Model
     	$data->status_del = 0;
     	if ($data->save()) {
     		return succ('success', 201);
-    	} else {
-            return err('系統錯誤！', 400);
-        }
+    	}
 
     }
 
