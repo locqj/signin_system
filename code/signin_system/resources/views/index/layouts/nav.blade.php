@@ -3,10 +3,6 @@
     <head>
         <title></title>
         <meta charset="UTF-8">
-        <meta http-equiv="Expires" content="0">
-		<meta http-equiv="Pragma" content="no-cache">
-		<meta http-equiv="Cache-control" content="no-cache">
-		<meta http-equiv="Cache" content="no-cache">
         <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -25,9 +21,6 @@
     </head>
     <body>
     	<header class="mui-bar mui-bar-nav">
-    	@if($_SERVER['PHP_SELF'] != '/index')
-			<a class=" mui-icon mui-icon-left-nav mui-pull-left" href="/index"></a>
-		@endif
 			<h1 class="mui-title">學習記錄工具</h1>
 		</header>
 		<div class="mui-content">
