@@ -92,8 +92,8 @@
 		</div>
 	</div>
 	<div class="mui-card-footer">
-		<a class="mui-card-link" href="#bottomPopover">开始</a>
-		<a class="mui-card-link" href="index/listlog">查看</a>
+		<a class="mui-card-link a-start" href="#bottomPopover">开始</a>
+		<a class="mui-card-link a-log" href="index/listlog">查看</a>
 	</div>
 </div>
 <div id="bottomPopover" class="mui-popover mui-popover-bottom">
@@ -151,7 +151,8 @@ mui('.mui-scroll-wrapper').scroll(); //滑塊滑動
 					$('.ul-start').append(clo);
 				});
 			} else {
-				alert('testsd');
+				$('.a-start').removeAttr('href');
+				mui.toast('请新添加打卡项目');
 			}
 		}
 	})
