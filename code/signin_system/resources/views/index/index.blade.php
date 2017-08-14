@@ -35,7 +35,7 @@
 		padding: 10px;
 	}
 </style>
-<div class="mui-card">{{$openid}}
+<div class="mui-card">
 	<ul class="mui-table-view matters">
 		 <li class="mui-table-view-cell clone_block"><span></span><span style="float: right">test</span></li>
 	</ul>
@@ -92,7 +92,7 @@
 		</div>
 	</div>
 	<div class="mui-card-footer">
-		<a class="mui-card-link" href="#bottomPopover">開始</a>
+		<a class="mui-card-link" href="#bottomPopover">開始{{$openid}}</a>
 		<a class="mui-card-link" href="index/listlog">查看</a>
 	</div>
 </div>
