@@ -26,10 +26,10 @@
 		</style>
 @section('body')
 <div class="mui-card">
-	<h5  style="padding: 1% 2%">打卡記錄</h5>
+	<h5  style="padding: 1% 2%">打卡记录</h5>
 	<div class="mui-card-content-inner">
 		<div style="padding: 1% 2%">
-			<button id='TagPicker' class="mui-btn mui-btn-block mui-btn-outlined" type='button'>讀物</button>
+			<button id='TagPicker' class="mui-btn mui-btn-block mui-btn-outlined" type='button'>读物</button>
 			<div id='TagResult' class="ui-alert"></div>
 			<span id='TagValue' style="display: none;"></span>
 		</div>
@@ -129,9 +129,9 @@
 		var tag_code = $('#TagValue').text();
 		var action_code = '{{ $code }}';
 		if (!tag_code) {
-			mui.toast('請選擇讀物');
+			mui.toast('请选择读物');
 		} else if (!moon_code) {
-			mui.toast('請選擇心情');
+			mui.toast('请选择心情');
 		} else {
 			mui.ajax('/api/index/addtaglog',{
 				data:{

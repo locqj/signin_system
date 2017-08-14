@@ -6,7 +6,7 @@
 		<img src="{{ asset('mui-master/examples/hello-mui/images/logo.png') }}">
 		<div class="mui-media-body">
 			{{ $data->name }}
-			<p id="nowTime"></p>
+			<p id="nowTime">当前时间：</p>
 		</div>
 		<!--<img class="mui-pull-left" src="../images/logo.png" width="34px" height="34px" />
 		<h2>小M</h2>
@@ -20,7 +20,7 @@
 	</div>
 	@if($data->blade_status == 1)
 		<div id="countdown-dev">
-				<h5>進度：</h5>
+				<h5>进度：</h5>
 				<p class="mui-progressbar mui-progressbar-success"><span></span></p>
 				<button type="button" class="mui-btn mui-btn-primary mui-btn-block mui-btn-outlined actions_start_1">打卡</button>
 		</div>

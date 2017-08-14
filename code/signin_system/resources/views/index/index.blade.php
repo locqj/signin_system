@@ -92,7 +92,7 @@
 		</div>
 	</div>
 	<div class="mui-card-footer">
-		<a class="mui-card-link" href="#bottomPopover">開始{{$openid}}</a>
+		<a class="mui-card-link" href="#bottomPopover">开始</a>
 		<a class="mui-card-link" href="index/listlog">查看</a>
 	</div>
 </div>
@@ -101,7 +101,7 @@
 	<div class="mui-scroll-wrapper div-start">
 		<div class="mui-scroll">
 			<ul class="mui-table-view ul-start ">
-				<li class="mui-table-view-cell li-start-label">當前時段可打卡項目</a>
+				<li class="mui-table-view-cell li-start-label">当前时段可打卡項目</a>
 				</li>
 				<li class="mui-table-view-cell clone_block-start"><span></span><a href=""></a>
 				</li>
@@ -129,7 +129,7 @@ mui('.mui-scroll-wrapper').scroll(); //滑塊滑動
 				var clo = clone_block.clone(true);
                 $(clo).removeClass('clone_block');
                 $(clo).children('span').eq(0).text(val.name);
-                var msg = '還有'+val.daymatter+'天';
+                var msg = '还有'+val.daymatter+'天';
                 $(clo).children('span').eq(1).text(msg);
                 $(clo).show();
                 $('.matters').append(clo);
@@ -139,16 +139,20 @@ mui('.mui-scroll-wrapper').scroll(); //滑塊滑動
 
 	$.get('/api/index/startlist', function(data) {
 		if(data.code == 200) {
-			var clone_block_start = $('.clone_block-start');
-			$.each(data.data, function(key, val) {
-				var clo = clone_block_start.clone(true);
-				$(clo).removeClass('clone_block-start');
-				var href_link = 'index/actions/'+val.code;
-				$(clo).children('a').attr('href', href_link);
-				$(clo).children('span').text(val.name);
-				$(clo).show();
-				$('.ul-start').append(clo);
-			})
+			if (data.data.length != 0) {
+				var clone_block_start = $('.clone_block-start');
+				$.each(data.data, function(key, val) {
+					var clo = clone_block_start.clone(true);
+					$(clo).removeClass('clone_block-start');
+					var href_link = 'index/actions/'+val.code;
+					$(clo).children('a').attr('href', href_link);
+					$(clo).children('span').text(val.name);
+					$(clo).show();
+					$('.ul-start').append(clo);
+				});
+			} else {
+				alert('testsd');
+			}
 		}
 	})
 </script>

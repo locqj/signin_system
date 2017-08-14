@@ -30,13 +30,13 @@ class ActionsController extends Controller
     public function postAddAction()
     {   
         if (rq('start_time') != null && rq('end_time') == null) {
-            return err('請填寫結束日期', 400);
+            return err('请填写结束日期', 400);
         } elseif (rq('start_time') == null && rq('end_time') != null) {
-            return err('請填寫開始日期', 400);
+            return err('请填写开始日期', 400);
         } elseif (rq('result_start') != null && rq('result_end') == null) {
-            return err('請填寫結束時間', 400);
+            return err('请填写开始时间', 400);
         } elseif (rq('result_start') == null && rq('result_end') != null) {
-            return err('請填寫開始時間', 400);
+            return err('请填写结束时间', 400);
         } else {
             $data = actions()->add();
             return $data;

@@ -17,9 +17,8 @@ class IndexController extends Controller
     public function index()
     {	
     	$dist = $this->preIndex();
-    	$openid = session('user_id');
     	if ($dist) {
-	        return view('index.index', compact('openid'));
+	        return view('index.index');
     	}
     }
 

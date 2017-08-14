@@ -24,11 +24,11 @@
 	<form class="mui-input-group">
 
 		<div class="mui-input-row">
-			<label>打卡名稱:</label>
+			<label>打卡名称:</label>
 			<input type="text" class="mui-input-clear" id="tag_name" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
 		</div>
-		<h5 class="mui-content-padded" style="padding: 0px 5px">默認設置爲0，即爲不需要有打卡時長約束</h5>
-		<h5 class="mui-content-padded" style="padding: 0px 5px">單位爲分鍾</h5>
+		<h5 class="mui-content-padded" style="padding: 0px 5px">默认设置为0，即为不需要有打卡时长约束</h5>
+		<h5 class="mui-content-padded" style="padding: 0px 5px">单位时间为分钟</h5>
 
 		<div class="mui-input-row">
 			<label>打卡長度:</label>
@@ -39,50 +39,50 @@
 			</div>
 		</div>
 		<!--  -->
-		<h5 class="mui-content-padded" style="padding: 0px 5px">設置每天打卡時段</h5>
+		<h5 class="mui-content-padded" style="padding: 0px 5px">设置每天打卡时段</h5>
 		<ul class="mui-table-view mui-table-view-radio selecte_tag_time">
 			<li class="mui-table-view-cell mui-selected" value="0">
 				<a class="mui-navigate-right">
-					默認全天任何時段
+					默认全天任何时段
 				</a>
 			</li>
 			<li class="mui-table-view-cell" value="1">
 				<a class="mui-navigate-right">
-					選擇時間段
+					选择时间段
 				</a>
 			</li>
 		</ul>
 		<div class="time_tag">
 			<div class="mui-content-padded">
-				<button id="btn_start" data-options="{&quot;type&quot;:&quot;time&quot;}" class="btn mui-btn mui-btn-block">開始時間</button>
+				<button id="btn_start" data-options="{&quot;type&quot;:&quot;time&quot;}" class="btn mui-btn mui-btn-block">开始时间</button>
 				<div id='result_start' class="ui-alert"></div>
 			</div>
 			<div class="mui-content-padded">
-				<button id="btn_end" data-options="{&quot;type&quot;:&quot;time&quot;}" class="btn mui-btn mui-btn-block">結束時間</button>
+				<button id="btn_end" data-options="{&quot;type&quot;:&quot;time&quot;}" class="btn mui-btn mui-btn-block">结束时间</button>
 				<div id='result_end' class="ui-alert"></div>
 			</div>
 		</div>
 		<!--  -->
-		<h5 class="mui-content-padded" style="padding: 0px 5px">設置開始結束時間</h5>
+		<h5 class="mui-content-padded" style="padding: 0px 5px">设置开始结束时间</h5>
 		<ul class="mui-table-view mui-table-view-radio selecte_set_time">
 			<li class="mui-table-view-cell mui-selected" value="0">
 				<a class="mui-navigate-right">
-					不限制日期長期打卡
+					不限制日期打卡
 				</a>
 			</li>
 			<li class="mui-table-view-cell" value="1">
 				<a class="mui-navigate-right">
-					設置打卡開始，結束日期
+					设置打卡开始，結束日期
 				</a>
 			</li>
 		</ul>
 		<div class="time_set">
 			<div class="mui-content-padded">
-				<button id="btn_tag_start" data-options="{&quot;type&quot;:&quot;date&quot;,&quot;beginYear&quot;:2017,&quot;endYear&quot;:2037}" class="btn mui-btn mui-btn-block">開始時間</button>
+				<button id="btn_tag_start" data-options="{&quot;type&quot;:&quot;date&quot;,&quot;beginYear&quot;:2017,&quot;endYear&quot;:2037}" class="btn mui-btn mui-btn-block">开始时间</button>
 				<div id='tag_start' class="ui-alert"></div>
 			</div>
 			<div class="mui-content-padded">
-				<button id="btn_tag_end" data-options="{&quot;type&quot;:&quot;date&quot;,&quot;beginYear&quot;:2017,&quot;endYear&quot;:2037}" class="btn mui-btn mui-btn-block">結束時間</button>
+				<button id="btn_tag_end" data-options="{&quot;type&quot;:&quot;date&quot;,&quot;beginYear&quot;:2017,&quot;endYear&quot;:2037}" class="btn mui-btn mui-btn-block">结束时间</button>
 				<div id='tag_end' class="ui-alert"></div>
 			</div>
 		</div>
@@ -290,9 +290,9 @@
 		var tag_start = $('#tag_start').text();
 		var tag_end = $('#tag_end').text();
 		if(!tag_name) {
-			mui.toast('打卡名稱不得爲空');
+			mui.toast('打卡名称不得为空');
 		} else if (tag_length < 0) {
-			mui.toast('打卡長度不得爲負數');
+			mui.toast('打卡长度不得为负数');
 		} else {
 			/*提交*/
 			mui.ajax('/api/index/addaction',{
