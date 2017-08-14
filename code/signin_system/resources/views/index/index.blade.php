@@ -93,7 +93,8 @@
 	</div>
 	<div class="mui-card-footer">
 		<a class="mui-card-link a-start" href="#bottomPopover">开始</a>
-		<a class="mui-card-link a-log" href="index/listlog">查看</a>
+		<a class="mui-card-link a-log" href="{{ url('index/listlog') }}">查看</a>
+		<a class="mui-card-link a-add" href="{{ url('index/addaction') }}">添加</a>
 	</div>
 </div>
 <div id="bottomPopover" class="mui-popover mui-popover-bottom">
@@ -155,6 +156,16 @@ mui('.mui-scroll-wrapper').scroll(); //滑塊滑動
 				mui.toast('请新添加打卡项目');
 			}
 		}
+	});
+
+	$('.a-start').click(function() {
+		$.get('/api/index/startlist', function(data) {
+			if (data.code == 200) {
+				if (data.data.length == 0) {
+					mui.toast('请新添加打卡项目');
+				}
+			}
+		});
 	})
 </script>
 @endsection

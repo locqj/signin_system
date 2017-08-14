@@ -1,13 +1,9 @@
 @extends('index.layouts.nav')
 
 @section('body')
-<h5 class="mui-content-padded" style="margin: 35px 10px 15px 10px;">操作</h5>
 <div class="mui-content-padded">
-	    <a type="button" class="mui-btn mui-btn-block" href="{{ url('index/addaction') }}">新建項目</a>
-
-</div>
-<div class="mui-content-padded">
-<h5 class="mui-content-padded" style="margin: 35px 10px 15px 10px;">已有打卡項目</h5>
+<p class="mui-content-padded" style="margin: 35px 10px 15px 10px;">已有打卡項目</p>
+<h5>右滑删除该打卡</h5>
 <ul id="OA_task_1" class="mui-table-view">
 	<li class="mui-table-view-cell clone_block">
 		<div class="mui-slider-right mui-disabled">
@@ -40,13 +36,20 @@
 	});
 	/*刪除按鈕*/
 	$('.btn-del').click(function() {
-		var id = $(this).attr('value');
-		var tag = $(this).parent().parent();
-		$.get('/api/index/delaction?id='+id, function(data) {
-			if(data.code == 204) {
-				tag.hide();
+		var btnArray = ['否', '是'];
+		mui.confirm('确认删除该项目？', '打卡系统', btnArray, function(e) {
+			if (e.index == 1) {
+				var id = $(this).attr('value');
+				var tag = $(this).parent().parent();
+				$.get('/api/index/delaction?id='+id, function(data) {
+					if(data.code == 204) {
+						tag.hide();
+					}
+				});
 			}
-		});
+		})
+		
+
 	})
 	
 	
