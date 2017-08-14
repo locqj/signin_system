@@ -35,7 +35,7 @@
 		padding: 10px;
 	}
 </style>
-<div class="mui-card">
+<div class="mui-card">{{$openid}}
 	<ul class="mui-table-view matters">
 		 <li class="mui-table-view-cell clone_block"><span></span><span style="float: right">test</span></li>
 	</ul>
