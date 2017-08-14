@@ -26,6 +26,8 @@ class SignLog extends Model
         $this->created_at = date('Y-m-d H:i:s');
         if ($this->save()) {
             return succ('success', 201);
+        } else {
+            return err('系統錯誤！', 400);
         }
     }
     /**
@@ -56,7 +58,6 @@ class SignLog extends Model
         if ($data) {
             return suc($data->status_log, 200);
         } else {
-            
             return suc('0', 200);
         }
     }

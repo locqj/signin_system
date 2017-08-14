@@ -19,17 +19,21 @@ class DaysMatter extends Model
 		$this->day = $date_explode[2];
 		$this->openid = session('user_id');;
 		if($this->save()) {
-			return succ('success', '200');
-		}
+			return succ('success', 200);
+		} else {
+            return err('系統錯誤！', 400);
+        }
 	}
 
 	public function del()
 	{
 	    $data = $this->find(rq('id'));
 	    $data->status_del = 0;
-	    if($data->save()) {
-	        return suc($data, '200');
-	    }
+	    if ($data->save()) {
+	        return suc($data, 200);
+	    } else {
+            return err('系統錯誤！', 400);
+        }
 	}
 
 	public function renew()
@@ -41,8 +45,10 @@ class DaysMatter extends Model
 		$this->month = $date_explode[1];
 		$this->day = $date_explode[2];
 		if($data->save()) {
-			return succ('success', '200');
-		}
+			return succ('success', 200);
+		} else {
+            return err('系統錯誤！', 400);
+        }
 	}
 
 	protected function autoCode()

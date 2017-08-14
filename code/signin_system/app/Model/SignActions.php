@@ -54,7 +54,9 @@ class SignActions extends Model
         }
     	if($this->save()) {
     		return succ('success', 201);
-    	}
+    	} else {
+            return err('系統錯誤！', 400);
+        }
     }
 
     public function del()
@@ -64,6 +66,8 @@ class SignActions extends Model
         $data->status_del = 0;
         if ($data->save()) {
 	        return suc($data, 204);
+        } else {
+            return err('系統錯誤！', 400);
         }
 
     }
