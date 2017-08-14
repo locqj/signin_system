@@ -36,20 +36,15 @@
 	});
 	/*刪除按鈕*/
 	$('.btn-del').click(function() {
-		var btnArray = ['否', '是'];
-		mui.confirm('确认删除该项目？', '打卡系统', btnArray, function(e) {
-			if (e.index == 1) {
-				var id = $(this).attr('value');
-				var tag = $(this).parent().parent();
-				$.get('/api/index/delaction?id='+id, function(data) {
-					if(data.code == 204) {
-						tag.hide();
-					}
-				});
-			}
-		})
 		
-
+		var id = $(this).attr('value');
+		var tag = $(this).parent().parent();
+		$.get('/api/index/delaction?id='+id, function(data) {
+			if(data.code == 204) {
+				tag.hide();
+			}
+		});
+		
 	})
 	
 	
