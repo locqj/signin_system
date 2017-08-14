@@ -92,7 +92,7 @@
 		</div>
 	</div>
 	<div class="mui-card-footer">
-		<a class="mui-card-link a-start" href="#bottomPopover">开始</a>
+		<a class="mui-card-link a-start">开始</a>
 		<a class="mui-card-link a-log" href="{{ url('index/listlog') }}">查看</a>
 		<a class="mui-card-link a-add" href="{{ url('index/addaction') }}">添加</a>
 	</div>
@@ -138,32 +138,25 @@ mui('.mui-scroll-wrapper').scroll(); //滑塊滑動
 		}
 	});
 
-	$.get('/api/index/startlist', function(data) {
-		if(data.code == 200) {
-			if (data.data.length != 0) {
-				var clone_block_start = $('.clone_block-start');
-				$.each(data.data, function(key, val) {
-					var clo = clone_block_start.clone(true);
-					$(clo).removeClass('clone_block-start');
-					var href_link = 'index/actions/'+val.code;
-					$(clo).children('a').attr('href', href_link);
-					$(clo).children('span').text(val.name);
-					$(clo).show();
-					$('.ul-start').append(clo);
-				});
-			} else {
-				$('.a-start').removeAttr('href');
-				mui.toast('请新添加打卡项目');
-			}
-		}
-	});
+
 
 	$('.a-start').click(function() {
 		$.get('/api/index/startlist', function(data) {
 			if (data.code == 200) {
 				if (data.data.length == 0) {
 					mui.toast('请新添加打卡项目');
-				}
+				} else {
+					$('.a-start').attr('href', '#bottomPopover');
+					var clone_block_start = $('.clone_block-start');
+					$.each(data.data, function(key, val) {
+						var clo = clone_block_start.clone(true);
+						$(clo).removeClass('clone_block-start');
+						var href_link = 'index/actions/'+val.code;
+						$(clo).children('a').attr('href', href_link);
+						$(clo).children('span').text(val.name);
+						$(clo).show();
+						$('.ul-start').append(clo);
+					}
 			}
 		});
 	})
