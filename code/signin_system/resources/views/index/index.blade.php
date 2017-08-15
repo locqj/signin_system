@@ -36,10 +36,20 @@
 	}
 </style>
 <div class="mui-card">
+	<div class="mui-card-header mui-card-media" >
+		<img src="{{ $user->head_img }}"/>
+		<div class="mui-media-body">
+			{{ $user->nickname }}<span id="hello_time"></span>
+		</div>
+		<!--<img class="mui-pull-left" src="../images/logo.png" width="34px" height="34px" />
+		<h2>小M</h2>
+		<p>发表于 2016-06-30 15:30</p>-->
+	</div>
 	<ul class="mui-table-view matters">
 		 <li class="mui-table-view-cell clone_block"><span></span><span style="float: right">test</span></li>
 	</ul>
-	<div id="slider" class="mui-slider" >
+<div id="slider" class="mui-slider" >
+
 	<div class="mui-slider-group mui-slider-loop">
 		<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
 		<div class="mui-slider-item mui-slider-item-duplicate">
@@ -87,7 +97,7 @@
 </div>
 	<div class="mui-card-content">
 		<div class="mui-card-content-inner">
-			<p>Posted on January 18, 2016</p>
+			<p><!-- Posted on January 18, 2016 --></p>
 			<p style="color: #333;"></p>
 		</div>
 	</div>
@@ -97,6 +107,20 @@
 		<a class="mui-card-link a-add" href="{{ url('index/addaction') }}">添加</a>
 	</div>
 </div>
+<ul class="mui-table-view mui-grid-view mui-grid-9">
+    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+            <span class="mui-icon mui-icon-home"></span>
+            <div class="mui-media-body">Home</div></a></li>
+    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+            <span class="mui-icon mui-icon-email"><span class="mui-badge">5</span></span>
+            <div class="mui-media-body">Email</div></a></li>
+    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+            <span class="mui-icon mui-icon-chatbubble"></span>
+            <div class="mui-media-body">Chat</div></a></li>
+    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+            <span class="mui-icon mui-icon-location"></span>
+            <div class="mui-media-body">location</div></a></li>
+</ul>
 <div id="bottomPopover" class="mui-popover mui-popover-bottom">
 	<div class="mui-popover-arrow"></div>
 	<div class="mui-scroll-wrapper div-start">
@@ -155,10 +179,28 @@ mui('.mui-scroll-wrapper').scroll(); //滑塊滑動
 						$(clo).children('span').text(val.name);
 						$(clo).show();
 						$('.ul-start').append(clo);
-					}
+					});
+				}
 			}
 		});
-	})
+	});
+
+</script>
+<script type="text/javascript">
+	now = new Date();
+	hour = now.getHours();
+	console.log(hour);
+	if (hour >= 6 && hour < 8) {
+		$('#hello_time').text(", 早上好");
+	} else if (hour >= 8 && hour < 11) {
+		$('#hello_time').text(", 上午好");
+	} else if (hour >= 11 && hour < 13) {
+		$('#hello_time').text(", 中午好");
+	} else if (hour >= 13 && hour < 18) {
+		$('#hello_time').text(", 下午好");
+	} else {
+		$('#hello_time').text(", 晚上好");
+	}
 </script>
 @endsection
 

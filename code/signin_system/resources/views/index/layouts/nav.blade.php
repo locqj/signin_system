@@ -21,7 +21,7 @@
     </head>
     <body>
     	<header class="mui-bar mui-bar-nav">
-			<h1 class="mui-title">學習記錄工具</h1>
+			<h1 class="mui-title">学习打卡工具</h1>
 		</header>
 		<div class="mui-content">
 			@yield('body')

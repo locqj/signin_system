@@ -36,6 +36,17 @@ class ClientUser extends Model
         }
     }
 
+    /**
+     * [findDetails 根据openid查找信息]
+     * @param  [type] $openid [description]
+     * @return [type]         [description]
+     */
+    public function findDetails($openid)
+    {
+        $data = $this->where('openid', $openid)->first();
+        return $data;
+    }
+
     /* 打卡活動關聯 */
     public function actions()
     {
