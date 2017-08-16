@@ -21,8 +21,8 @@ class IndexController extends Controller
 
     public function index()
     {	
-    	// $dist = $this->preIndex();
-    	$dist = true;
+    	$dist = $this->preIndex();
+    	// $dist = true;
     	if ($dist) {
             $user = clientuser()->findDetails(session('user_id'));
             // $user = clientuser()->findDetails('xxx');
