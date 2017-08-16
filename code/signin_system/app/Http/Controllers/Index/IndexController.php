@@ -26,7 +26,7 @@ class IndexController extends Controller
     	if ($dist) {
             $user = clientuser()->findDetails(session('user_id'));
             // $user = clientuser()->findDetails('xxx');
-            session(['user_id' => 'xxx']);
+            
 	        return view('index.index', compact('user'));
     	}
     }
