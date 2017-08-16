@@ -103,24 +103,10 @@
 	</div>
 	<div class="mui-card-footer">
 		<a class="mui-card-link a-start" href="#bottomPopover">开始</a>
-		<a class="mui-card-link a-log" href="{{ url('index/listlog') }}">查看</a>
-		<a class="mui-card-link a-add" href="{{ url('index/addaction') }}">添加</a>
+		<a class="mui-card-link a-log" href="{{ url('index/more') }}">更多</a>
+		
 	</div>
 </div>
-<ul class="mui-table-view mui-grid-view mui-grid-9">
-    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-            <span class="mui-icon mui-icon-home"></span>
-            <div class="mui-media-body">Home</div></a></li>
-    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-            <span class="mui-icon mui-icon-email"><span class="mui-badge">5</span></span>
-            <div class="mui-media-body">Email</div></a></li>
-    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-            <span class="mui-icon mui-icon-chatbubble"></span>
-            <div class="mui-media-body">Chat</div></a></li>
-    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-            <span class="mui-icon mui-icon-location"></span>
-            <div class="mui-media-body">location</div></a></li>
-</ul>
 <div id="bottomPopover" class="mui-popover mui-popover-bottom">
 	<div class="mui-popover-arrow"></div>
 	<div class="mui-scroll-wrapper div-start">
@@ -162,28 +148,27 @@ mui('.mui-scroll-wrapper').scroll(); //滑塊滑動
 		}
 	});
 
-
-
-	$('.a-start').click(function() {
-		$.get('/api/index/startlist', function(data) {
-			if (data.code == 200) {
-				if (data.data.length == 0) {
-					mui.toast('请新添加打卡项目');
-				} else {
-					var clone_block_start = $('.clone_block-start');
-					$.each(data.data, function(key, val) {
-						var clo = clone_block_start.clone(true);
-						$(clo).removeClass('clone_block-start');
-						var href_link = 'index/actions/'+val.code;
-						$(clo).children('a').attr('href', href_link);
-						$(clo).children('span').text(val.name);
-						$(clo).show();
-						$('.ul-start').append(clo);
-					});
-				}
+	// 展示当前时间可打卡项目
+	$.get('/api/index/startlist', function(data) {
+		if (data.code == 200) {
+			if (data.data.length == 0) {
+				mui.toast('请新添加打卡项目');
+			} else {
+				var clone_block_start = $('.clone_block-start');
+				$.each(data.data, function(key, val) {
+					var clo = clone_block_start.clone(true);
+					$(clo).removeClass('clone_block-start');
+					var href_link = 'index/actions/'+val.code;
+					$(clo).children('a').attr('href', href_link);
+					$(clo).children('span').text(val.name);
+					$(clo).show();
+					$('.ul-start').append(clo);
+				});
 			}
-		});
+		}
 	});
+
+
 
 </script>
 <script type="text/javascript">

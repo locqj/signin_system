@@ -13,10 +13,12 @@ class MoonCalculate extends Model
     {   
         $dist = $this
             ->where('name', rq('name'))
+            ->where('openid', 'xxx')
             ->where('status_del', 1)->exists();
         if (!$dist) {
             $this->name = rq('name');
             $this->code = $this->autoCode();
+            $this->openid = session('user_id');
             if ($this->save()) {
                 return succ('success', 201);
             }
@@ -30,14 +32,24 @@ class MoonCalculate extends Model
     	$data = $this->find(rq('id'));
     	$data->status_del = 0;
     	if ($data->save()) {
-    		return succ('success', 201);
+    		return succ('success', 204);
     	}
 
     }
 
     public function list()
+    {   
+        $openid = session('user_id');
+        return $this->where('status_del', 1)
+            ->whereIn('openid', ['xxx1', $openid])->get();
+    }
+
+    public function listUser()
     {
-        return $this->where('status_del', 1)->get();
+        $openid = session('user_id');
+        $data = $this->where('status_del', 1)
+            ->where('openid', $openid)->get();
+        return suc($data, 200);
     }
     
     public function autoCode()

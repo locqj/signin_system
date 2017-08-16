@@ -81,10 +81,28 @@ Route::get('index/taglog/{code}', 'Index\TagLogController@index');
 Route::get('index/listlog', function() {
 	return view('index.list_log');
 });
+/*更多*/
+Route::get('index/more', function() {
+    return view('index.more');
+});
+
+/*心情設置頁*/
+Route::get('index/listmoon', function() {
+    return view('index.list_moon');
+});
+/*读物设置页*/
+Route::get('index/listtag', function() {
+    return view('index.list_tag');
+});
 /*添加項目表單頁*/
 Route::get('index/addaction', function() {
 	return view('index.list_create');
 });
+/*个人记录页*/
+Route::get('index/personlog', 'Index\PersionLogController@index');
+
+/*项目详情页*/
+Route::get('index/actiondetails/{code}', 'Index\ActionsController@listDetails');
 
 /*提交打卡項目*/
 Route::post('api/index/addaction', 'Index\ActionsController@postAddAction');
@@ -101,17 +119,24 @@ Route::get('api/index/delmatter', 'Index\DaysMatterController@delDayMatters');
 Route::post('api/index/addtag', 'Index\TagLogController@tagAdd');
 Route::get('api/index/deltag', 'Index\TagLogController@tagDel');
 Route::get('api/index/listtag', 'Index\TagLogController@tagList');
+Route::get('api/index/listtagperson', 'Index\TagLogController@tagListPerson');
+Route::post('api/index/addtaglog', 'Index\TagLogController@tagLogAdd');
+
 
 Route::post('api/index/addmoon', 'Index\TagLogController@moonAdd');
 Route::get('api/index/delmoon', 'Index\TagLogController@moonDel');
 Route::get('api/index/listmoon', 'Index\TagLogController@moonList');
+/*用戶自定義*/
+Route::get('api/index/listmoonperson', 'Index\TagLogController@moonListPerson');
 
-Route::post('api/index/addtaglog', 'Index\TagLogController@tagLogAdd');
+
+
+Route::get('api/index/personlog', 'Index\PersionLogController@getPersonLog');
+Route::get('api/index/personlistlog', 'Index\PersionLogController@getLastLog');
 
 /*授權接口wx*/
 Route::get('oauth', 'OAuthController@OAuth'); //請求
 Route::get('authcallback', 'OAuthController@authCallback'); //回調
 
 
-
-Route::get('test', 'Index\IndexController@test');
+Route::get('test', 'Index\PersionLogController@getPersonLog');

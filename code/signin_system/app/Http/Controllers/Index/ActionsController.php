@@ -23,6 +23,17 @@ class ActionsController extends Controller
         }
         return view('index.actions', compact('data'));
     }
+
+    /**
+     * [listDetails 项目详情]
+     * @return [type] [description]
+     */
+    public function listDetails($action_code)
+    {   
+        $data = actions()->findByCode($action_code);
+        return view('index.list_details', compact('data'));
+    }
+
     /**
      * [postAddAction 添加打卡項目api]
      * @return [type] [description]
