@@ -98,6 +98,7 @@
 @else
 	<div class="mui-slider-group mui-slider-loop">
 	@for($i = 0; $i < count($index); $i++)
+	../storage/app/public/{{ $index[$i]['img_url'] }}
 		<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
 		@if ($i == 0)
 		<div class="mui-slider-item mui-slider-item-duplicate">
@@ -109,13 +110,13 @@
 		<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
 		<div class="mui-slider-item mui-slider-item-duplicate">
 			<a href="#">
-				<img src="../storage/app/public/{{ $index[$i]['img_url'] }}">
+				<img src="/storage/{{ $index[$i]['img_url'] }}">
 			</a>
 		</div>
 		@endif
 		<div class="mui-slider-item">
 			<a href="#">
-				<img src="../storage/app/public/{{ $index[$i]['img_url'] }}">
+				<img src="/storage/{{ $index[$i]['img_url'] }}">
 			</a>
 		</div>
 	@endfor
