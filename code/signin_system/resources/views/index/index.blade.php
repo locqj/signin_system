@@ -109,13 +109,13 @@
 		<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
 		<div class="mui-slider-item mui-slider-item-duplicate">
 			<a href="#">
-				<img src="/storage/{{ $index[$i]['img_url'] }}">
+				<img src="../storage/app/public/{{ $index[$i]['img_url'] }}">
 			</a>
 		</div>
 		@endif
 		<div class="mui-slider-item">
 			<a href="#">
-				<img src="/storage/{{ $index[$i]['img_url'] }}">
+				<img src="../storage/app/public/{{ $index[$i]['img_url'] }}">
 			</a>
 		</div>
 	@endfor
