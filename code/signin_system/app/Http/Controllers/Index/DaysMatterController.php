@@ -16,13 +16,16 @@ class DaysMatterController extends Controller
 	 */
     public function getDayMatters() 
     {
-    	$openid = session('user_id'); // test
+    	$openid = session('user_id');
     	$data = matters()
     		->where('openid', $openid)
 			->where('status_del', 1)
 			->get();
 		foreach ($data as $key => $value) {
 			$value->daymatter = $this->getDay($value->month, $value->day, $value->year);
+            if ($value->daymatter == 0) {
+                unset($data[$key]);
+            }
 		}
 		return suc($data, 200);
 

@@ -36,7 +36,7 @@
 		padding: 10px;
 	}
 </style>
-<div class="mui-content-padded">
+<div class="mui-card">
 <div class="title">操作</div>
 	<a type="button" class="mui-btn mui-btn-primary mui-btn-block mui-btn-outlined" id="addmoon" style="padding:6px 0px" >新建心情</a>
 <div class="title">已有心情</div>

@@ -45,11 +45,12 @@
 		<h2>小M</h2>
 		<p>发表于 2016-06-30 15:30</p>-->
 	</div>
+	<div class="title" style="font-size: 12px">倒计时任务：</div >
 	<ul class="mui-table-view matters">
 		 <li class="mui-table-view-cell clone_block"><span></span><span style="float: right">test</span></li>
 	</ul>
 <div id="slider" class="mui-slider" >
-
+@if($count['index'] == 0)
 	<div class="mui-slider-group mui-slider-loop">
 		<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
 		<div class="mui-slider-item mui-slider-item-duplicate">
@@ -94,6 +95,41 @@
 		<div class="mui-indicator"></div>
 		<div class="mui-indicator"></div>
 	</div>
+@else
+	<div class="mui-slider-group mui-slider-loop">
+	@for($i = 0; $i < count($index); $i++)
+		<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+		@if ($i == 0)
+		<div class="mui-slider-item mui-slider-item-duplicate">
+			<a href="#">
+				<img src="/storage/{{ $index[$i]['img_url'] }}">
+			</a>
+		</div>
+		@elseif ($i == count($index)-1)
+		<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+		<div class="mui-slider-item mui-slider-item-duplicate">
+			<a href="#">
+				<img src="/storage/{{ $index[$i]['img_url'] }}">
+			</a>
+		</div>
+		@endif
+		<div class="mui-slider-item">
+			<a href="#">
+				<img src="/storage/{{ $index[$i]['img_url'] }}">
+			</a>
+		</div>
+	@endfor
+	</div>
+	<div class="mui-slider-indicator">
+		@for($i = 0; $i < $count['index']; $i++)
+			@if($i == 0)
+			<div class="mui-indicator mui-active"></div>
+			@else
+			<div class="mui-indicator"></div>
+			@endif
+		@endfor
+	</div>
+@endif
 </div>
 	<div class="mui-card-content">
 		<div class="mui-card-content-inner">
@@ -128,7 +164,7 @@
 mui('.mui-scroll-wrapper').scroll(); //滑塊滑動
 	var slider = mui("#slider");
 	slider.slider({
-		interval: 5000
+		interval: 2000
 	});
 </script>
 <script type="text/javascript">

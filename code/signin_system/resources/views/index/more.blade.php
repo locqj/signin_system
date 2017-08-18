@@ -5,6 +5,9 @@
     <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="{{ url('index/personlog') }}">
             <span class="mui-icon mui-icon-home"></span>
             <div class="mui-media-body">个人记录</div></a></li>
+    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="{{ url('index/daysmatter') }}">
+            <span class="mui-icon mui-icon-phone"></span>
+            <div class="mui-media-body">设置倒计时</div></a></li>
     <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="{{ url('index/listmoon') }}">
             <span class="mui-icon mui-icon-email"><!-- <span class="mui-badge">5</span> --></span>
             <div class="mui-media-body">设置心情</div></a></li>
@@ -14,11 +17,8 @@
     <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="{{ url('index/listlog') }}">
             <span class="mui-icon mui-icon-location"></span>
             <div class="mui-media-body">设置项目</div></a></li>
-    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="{{ url('index/upload') }}">
             <span class="mui-icon mui-icon-search"></span>
-            <div class="mui-media-body">设置轮播图</div></a></li>
-    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-            <span class="mui-icon mui-icon-phone"></span>
-            <div class="mui-media-body">设置打卡图</div></a></li>
+            <div class="mui-media-body">上传图片</div></a></li>
 </ul> 
 @endsection

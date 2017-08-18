@@ -13,6 +13,7 @@ class TagCalculate extends Model
      public function add()
     {   
         $openid = session('user_id');
+        
         $dist = $this
             ->where('name', rq('name'))
             ->where('openid', $openid)
@@ -42,12 +43,14 @@ class TagCalculate extends Model
     public function list()
     {   
         $openid = session('user_id');
+        
         return $this->where('status_del', 1)->whereIn('openid', ['xxx', $openid])->get();
     }
 
     public function listUser()
     {
         $openid = session('user_id');
+        
         $data = $this->where('status_del', 1)
             ->where('openid', $openid)->get();
         return suc($data, 200);

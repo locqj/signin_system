@@ -11,9 +11,10 @@ class MoonCalculate extends Model
 
     public function add()
     {   
+        $openid = session('user_id');
         $dist = $this
             ->where('name', rq('name'))
-            ->where('openid', 'xxx')
+            ->where('openid', $openid)
             ->where('status_del', 1)->exists();
         if (!$dist) {
             $this->name = rq('name');
@@ -41,7 +42,7 @@ class MoonCalculate extends Model
     {   
         $openid = session('user_id');
         return $this->where('status_del', 1)
-            ->whereIn('openid', ['xxx1', $openid])->get();
+            ->whereIn('openid', ['xxx', $openid])->get();
     }
 
     public function listUser()

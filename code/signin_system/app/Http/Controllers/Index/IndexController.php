@@ -22,12 +22,13 @@ class IndexController extends Controller
     public function index()
     {	
     	$dist = $this->preIndex();
-    	// $dist = true;
+    	 //$dist = true;
     	if ($dist) {
             $user = clientuser()->findDetails(session('user_id'));
             // $user = clientuser()->findDetails('xxx');
-            
-	        return view('index.index', compact('user'));
+            $index = imagelog()->list_index();
+            $count = imagelog()->get_count();
+	        return view('index.index', compact('user', 'index', 'count'));
     	}
     }
 

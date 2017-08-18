@@ -53,6 +53,7 @@ class SignLog extends Model
     public function getStatusLog($year, $month, $day)
     {   
         $openid = session('user_id');
+        
         $data = $this->where('year', $year)
             ->where('month', $month)->where('openid', $openid)
             ->where('day', $day)->first();
@@ -67,6 +68,7 @@ class SignLog extends Model
     public function getUserTag()
     {   
         $openid = session('user_id');
+        
         $data = $this->where('openid', $openid)->where('status_log', 1)->first();
         $data = $data->status_tag;
         return $data;
@@ -76,6 +78,7 @@ class SignLog extends Model
     public function getUserCount()
     {
         $openid = session('user_id');
+        
         $data = $this->where('openid', $openid)->count();
         return $data;
     }
@@ -84,6 +87,7 @@ class SignLog extends Model
     public function getUserDayCount($year, $month, $day)
     {
         $openid = session('user_id');
+        
         $data = $this->where('openid', $openid)
             ->where('year', $year)
             ->where('month', $month)
@@ -95,6 +99,7 @@ class SignLog extends Model
     public function listUserLimit()
     {   
         $openid = session('user_id');
+        
         $data = $this->where('openid', $openid)
             ->groupBy('year', 'month', 'day')->limit(10)->get();
         return $data;   
@@ -103,6 +108,7 @@ class SignLog extends Model
     public function listUserLimitLast()
     {
         $openid = session('user_id');
+        
         $data = $this->where('openid', $openid)
             ->orderBy('id', 'desc')->with('action', 'tag', 'moon')->limit(10)->get();
         return $data;   

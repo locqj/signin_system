@@ -81,6 +81,7 @@
 		$.get('/api/index/delaction?id='+id, function(data) {
 			if(data.code == 204) {
 				tag.hide();
+				mui,toast('删除成功');
 			}
 		});
 		

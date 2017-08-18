@@ -63,6 +63,10 @@ function signlog() {
 function clientuser() {
     return new App\Model\ClientUser;
 }
+/*实例化imagelog*/
+function imagelog() {
+    return new App\Model\ImageLog;
+}
 
 Route::get('/', function () {
     return view('welcome');
@@ -98,11 +102,23 @@ Route::get('index/listtag', function() {
 Route::get('index/addaction', function() {
 	return view('index.list_create');
 });
+/*倒计时页面*/
+Route::get('index/daysmatter', function() {
+    return view('index.list_daysmatter');
+});
+
+
+
 /*个人记录页*/
 Route::get('index/personlog', 'Index\PersionLogController@index');
 
 /*项目详情页*/
 Route::get('index/actiondetails/{code}', 'Index\ActionsController@listDetails');
+
+
+/*项目图片上传页*/
+Route::any('index/upload', 'Index\UploadImageController@upload');
+Route::get('api/index/delimg', 'Index\UploadImageController@del');
 
 /*提交打卡項目*/
 Route::post('api/index/addaction', 'Index\ActionsController@postAddAction');
@@ -133,6 +149,8 @@ Route::get('api/index/listmoonperson', 'Index\TagLogController@moonListPerson');
 
 Route::get('api/index/personlog', 'Index\PersionLogController@getPersonLog');
 Route::get('api/index/personlistlog', 'Index\PersionLogController@getLastLog');
+
+
 
 /*授權接口wx*/
 Route::get('oauth', 'OAuthController@OAuth'); //請求

@@ -13,8 +13,8 @@ class PersionLogController extends Controller
 	 */
     public function index()
     {	
-        $user = clientuser()->findDetails(session('user_id'));
-    	// $user = clientuser()->findDetails('xxx');
+        // $user = clientuser()->findDetails(session('user_id'));
+    	$user = clientuser()->findDetails('xxx');
     	return view('index.person_log', compact('user'));
     }
 

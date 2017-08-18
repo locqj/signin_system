@@ -21,7 +21,10 @@ class ActionsController extends Controller
             $data->blade_status = 1;
 
         }
-        return view('index.actions', compact('data'));
+        $user = clientuser()->findDetails(session('user_id'));
+        $action = imagelog()->list_action();
+        $count = imagelog()->get_count();
+        return view('index.actions', compact('data', 'action', 'count', 'user'));
     }
 
     /**
