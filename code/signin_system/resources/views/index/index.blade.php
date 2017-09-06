@@ -45,11 +45,19 @@
 		<h2>小M</h2>
 		<p>发表于 2016-06-30 15:30</p>-->
 	</div>
+<<<<<<< HEAD
+=======
+	<div class="title" style="font-size: 12px">倒计时任务：</div >
+>>>>>>> refs/remotes/origin/master
 	<ul class="mui-table-view matters">
 		 <li class="mui-table-view-cell clone_block"><span></span><span style="float: right">test</span></li>
 	</ul>
 <div id="slider" class="mui-slider" >
+<<<<<<< HEAD
 
+=======
+@if($count['index'] == 0)
+>>>>>>> refs/remotes/origin/master
 	<div class="mui-slider-group mui-slider-loop">
 		<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
 		<div class="mui-slider-item mui-slider-item-duplicate">
@@ -94,6 +102,42 @@
 		<div class="mui-indicator"></div>
 		<div class="mui-indicator"></div>
 	</div>
+@else
+	<div class="mui-slider-group mui-slider-loop">
+	@for($i = 0; $i < count($index); $i++)
+	../storage/app/public/{{ $index[$i]['img_url'] }}
+		<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+		@if ($i == 0)
+		<div class="mui-slider-item mui-slider-item-duplicate">
+			<a href="#">
+				<img src="/storage/{{ $index[$i]['img_url'] }}">
+			</a>
+		</div>
+		@elseif ($i == count($index)-1)
+		<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+		<div class="mui-slider-item mui-slider-item-duplicate">
+			<a href="#">
+				<img src="/storage/{{ $index[$i]['img_url'] }}">
+			</a>
+		</div>
+		@endif
+		<div class="mui-slider-item">
+			<a href="#">
+				<img src="/storage/{{ $index[$i]['img_url'] }}">
+			</a>
+		</div>
+	@endfor
+	</div>
+	<div class="mui-slider-indicator">
+		@for($i = 0; $i < $count['index']; $i++)
+			@if($i == 0)
+			<div class="mui-indicator mui-active"></div>
+			@else
+			<div class="mui-indicator"></div>
+			@endif
+		@endfor
+	</div>
+@endif
 </div>
 	<div class="mui-card-content">
 		<div class="mui-card-content-inner">
@@ -103,8 +147,8 @@
 	</div>
 	<div class="mui-card-footer">
 		<a class="mui-card-link a-start" href="#bottomPopover">开始</a>
-		<a class="mui-card-link a-log" href="{{ url('index/listlog') }}">查看</a>
-		<a class="mui-card-link a-add" href="{{ url('index/addaction') }}">添加</a>
+		<a class="mui-card-link a-log" href="{{ url('index/more') }}">更多</a>
+		
 	</div>
 </div>
 <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -142,7 +186,7 @@
 mui('.mui-scroll-wrapper').scroll(); //滑塊滑動
 	var slider = mui("#slider");
 	slider.slider({
-		interval: 5000
+		interval: 2000
 	});
 </script>
 <script type="text/javascript">
@@ -162,8 +206,29 @@ mui('.mui-scroll-wrapper').scroll(); //滑塊滑動
 		}
 	});
 
+	// 展示当前时间可打卡项目
+	$.get('/api/index/startlist', function(data) {
+		if (data.code == 200) {
+			if (data.data.length == 0) {
+				mui.toast('请新添加打卡项目');
+			} else {
+				var clone_block_start = $('.clone_block-start');
+				$.each(data.data, function(key, val) {
+					var clo = clone_block_start.clone(true);
+					$(clo).removeClass('clone_block-start');
+					var href_link = 'index/actions/'+val.code;
+					$(clo).children('a').attr('href', href_link);
+					$(clo).children('span').text(val.name);
+					$(clo).show();
+					$('.ul-start').append(clo);
+				});
+			}
+		}
+	});
 
 
+
+<<<<<<< HEAD
 	$('.a-start').click(function() {
 		$.get('/api/index/startlist', function(data) {
 			if (data.code == 200) {
@@ -185,6 +250,8 @@ mui('.mui-scroll-wrapper').scroll(); //滑塊滑動
 		});
 	});
 
+=======
+>>>>>>> refs/remotes/origin/master
 </script>
 <script type="text/javascript">
 	now = new Date();

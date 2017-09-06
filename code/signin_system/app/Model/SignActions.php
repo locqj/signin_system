@@ -65,6 +65,7 @@ class SignActions extends Model
         $data = $this->find(rq('id'));
         $data->status_del = 0;
         if ($data->save()) {
+            $data->link_url = '/index/listlog';
 	        return suc($data, 204);
         }
 

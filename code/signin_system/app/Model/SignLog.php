@@ -37,7 +37,8 @@ class SignLog extends Model
         $openid = session('user_id');
         $dist = $this->where('openid', $openid)->where('status_tag', 1)->exists();
         if ($dist) {
-            $data = $this->where('openid', $openid)->where('status_tag', 1)->update(['status_tag' => 0]);
+            $data = $this->where('openid', $openid)
+                ->where('status_tag', 1)->update(['status_tag' => 0]);
         }
             return succ('success', 201);
     }
@@ -52,6 +53,7 @@ class SignLog extends Model
     public function getStatusLog($year, $month, $day)
     {   
         $openid = session('user_id');
+        
         $data = $this->where('year', $year)
             ->where('month', $month)->where('openid', $openid)
             ->where('day', $day)->first();
@@ -62,25 +64,74 @@ class SignLog extends Model
         }
     }
 
+    /*获取用户最大连击*/
+    public function getUserTag()
+    {   
+        $openid = session('user_id');
+        
+        $data = $this->where('openid', $openid)->where('status_log', 1)->first();
+        $data = $data->status_tag;
+        return $data;
+    }
+
+    /*获取用户总打卡数*/
+    public function getUserCount()
+    {
+        $openid = session('user_id');
+        
+        $data = $this->where('openid', $openid)->count();
+        return $data;
+    }
+
+    /*获取用户每天的打卡统计*/
+    public function getUserDayCount($year, $month, $day)
+    {
+        $openid = session('user_id');
+        
+        $data = $this->where('openid', $openid)
+            ->where('year', $year)
+            ->where('month', $month)
+            ->where('day', $day)->count();
+        return $data;
+    }
+
+    /*获取用户近十条数据*/
+    public function listUserLimit()
+    {   
+        $openid = session('user_id');
+        
+        $data = $this->where('openid', $openid)
+            ->groupBy('year', 'month', 'day')->limit(10)->get();
+        return $data;   
+    }
+
+    public function listUserLimitLast()
+    {
+        $openid = session('user_id');
+        
+        $data = $this->where('openid', $openid)
+            ->orderBy('id', 'desc')->with('action', 'tag', 'moon')->limit(10)->get();
+        return $data;   
+    }
 
     public function action()
     {
-        return hasOne('App\Model\SignActions', 'code', 'action_code');
+        return $this->hasOne('App\Model\SignActions', 'code', 'action_code');
     }
 
     public function tag()
     {
-        return hasOne('App\Model\TagCalculate', 'code', 'tag_code');
+        return $this->hasOne('App\Model\TagCalculate', 'code', 'tag_code');
     }
 
 
     public function moon()
     {
-        return hasOne('App\Model\MoonCalculate', 'code', 'moon_code');
+        return $this->hasOne('App\Model\MoonCalculate', 'code', 'moon_code');
     }
 
     public function user()
     {
-        return hasOne('App\Model\ClientUser', 'openid', 'openid');
+        return $this->hasOne('App\Model\ClientUser', 'openid', 'openid');
     }
 }

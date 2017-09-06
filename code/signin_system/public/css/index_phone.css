@@ -38,4 +38,28 @@
 }
 
 
-/* taglog */
+/* listlog */
+
+.title {
+	margin: 20px 15px 10px;
+	color: #6d6d72;
+	font-size: 18px;
+}
+
+/* personlog */
+.ul-li-img {
+	width: 15%;
+	height: 15%;
+	float: left;
+	padding-left: 2px;
+	border-radius:10px
+}
+
+.ul-li-span {
+	height: 15%;
+	width: 75%;
+	padding-top: 4%;
+	float: right;
+	display: block;
+	font-size: 23px
+}

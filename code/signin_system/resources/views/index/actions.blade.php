@@ -3,7 +3,7 @@
 @section('body')
 <div class="mui-card">
 	<div class="mui-card-header mui-card-media">
-		<img src="{{ asset('mui-master/examples/hello-mui/images/logo.png') }}">
+		<img src="{{ $user->head_img }}">
 		<div class="mui-media-body">
 			{{ $data->name }}
 			<p id="nowTime">当前时间：</p>
@@ -13,7 +13,88 @@
 		<p>发表于 2016-06-30 15:30</p>-->
 	</div>
 	<div class="mui-card-content">
-		<img src="{{ asset('mui-master/examples/hello-mui/images/yuantiao.jpg') }}" alt="" width="100%">
+		<div id="slider" class="mui-slider" >
+		@if($count['action'] == 0)
+			<div class="mui-slider-group mui-slider-loop">
+				<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#">
+						<img src="{{ asset('mui-master/examples/hello-mui/images/yuantiao.jpg') }}">
+					</a>
+				</div>
+				<!-- 第一张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="{{ asset('mui-master/examples/hello-mui/images/shuijiao.jpg') }}">
+					</a>
+				</div>
+				<!-- 第二张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="{{ asset('mui-master/examples/hello-mui/images/muwu.jpg') }}">
+					</a>
+				</div>
+				<!-- 第三张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="{{ asset('mui-master/examples/hello-mui/images/cbd.jpg') }}">
+					</a>
+				</div>
+				<!-- 第四张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="{{ asset('mui-master/examples/hello-mui/images/yuantiao.jpg') }}">
+					</a>
+				</div>
+				<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#">
+						<img src="{{ asset('mui-master/examples/hello-mui/images/shuijiao.jpg') }}">
+					</a>
+				</div>
+			</div>
+			<div class="mui-slider-indicator">
+				<div class="mui-indicator mui-active"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+			</div>
+		@else
+			<div class="mui-slider-group mui-slider-loop">
+			@for($i = 0; $i < count($action); $i++)
+				<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+				@if ($i == 0)
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#">
+						<img src="/storage/{{ $action[$i]['img_url'] }}">
+					</a>
+				</div>
+				@elseif ($i == count($action)-1)
+				<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#">
+						<img src="/storage/{{ $action[$i]['img_url'] }}">
+					</a>
+				</div>
+				@endif
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="/storage/{{ $action[$i]['img_url'] }}">
+					</a>
+				</div>
+			@endfor
+			</div>
+			<div class="mui-slider-indicator">
+				@for($i = 0; $i < $count['action']; $i++)
+					@if($i == 0)
+					<div class="mui-indicator mui-active"></div>
+					@else
+					<div class="mui-indicator"></div>
+					@endif
+				@endfor
+			</div>
+		@endif
+		</div>
 	</div>
 	<div class="mui-card-footer">
 		
@@ -34,7 +115,13 @@
 <script src="{{ asset('mui-master/examples/hello-mui/js/mui.min.js') }}"></script>
 <script src="{{ asset('mui-master/examples/hello-mui/js/update.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery-1.11.1.js"></script>
-
+<script type="text/javascript" charset="utf-8">
+mui('.mui-scroll-wrapper').scroll(); //滑塊滑動
+	var slider = mui("#slider");
+	slider.slider({
+		interval: 2000
+	});
+</script>
 <script>
 	/**
 	 * 通过随机数模拟业务进度，真实业务中需根据实际进度修改

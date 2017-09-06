@@ -45,6 +45,16 @@ class TagLogController extends Controller
     }
 
     /**
+     * [moonList 獲取心情]
+     * @return [type] [description]
+     */
+    public function moonListPerson()
+    {
+        return moon()->listUser();
+    }
+
+
+    /**
      * [moonAdd 心情添加]
      * @return [type] [description]
      */
@@ -59,7 +69,7 @@ class TagLogController extends Controller
      */
     public function moonDel()
     {
-    	$data = moon()->add();
+    	$data = moon()->del();
     	return $data;	
     }
 
@@ -76,6 +86,11 @@ class TagLogController extends Controller
             $list[$key]['text'] = $value->name;
         }
         return suc($list, 200);
+    }
+
+    public function tagListPerson()
+    {
+        return tag()->listUser();
     }
 
     /**
