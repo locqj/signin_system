@@ -8,6 +8,11 @@ use Redirect;
 
 class IndexController extends Controller
 {	
+    public function __construct()
+    {
+        $this->call();
+    }
+
 	public function call()
     {
     	return Redirect::to('/oauth');
@@ -18,7 +23,8 @@ class IndexController extends Controller
     {	
     	$dist = $this->preIndex();
     	if ($dist) {
-	        return view('index.index');
+            $user = clientuser()->findDetails(session('user_id'));
+	        return view('index.index', compact('user'));
     	}
     }
 
