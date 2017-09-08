@@ -45,12 +45,19 @@
 		<h2>小M</h2>
 		<p>发表于 2016-06-30 15:30</p>-->
 	</div>
+<<<<<<< HEAD
+=======
 	<div class="title" style="font-size: 12px">倒计时任务：</div >
+>>>>>>> refs/remotes/origin/master
 	<ul class="mui-table-view matters">
 		 <li class="mui-table-view-cell clone_block"><span></span><span style="float: right">test</span></li>
 	</ul>
 <div id="slider" class="mui-slider" >
+<<<<<<< HEAD
+
+=======
 @if($count['index'] == 0)
+>>>>>>> refs/remotes/origin/master
 	<div class="mui-slider-group mui-slider-loop">
 		<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
 		<div class="mui-slider-item mui-slider-item-duplicate">
@@ -144,6 +151,20 @@
 		
 	</div>
 </div>
+<ul class="mui-table-view mui-grid-view mui-grid-9">
+    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+            <span class="mui-icon mui-icon-home"></span>
+            <div class="mui-media-body">Home</div></a></li>
+    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+            <span class="mui-icon mui-icon-email"><span class="mui-badge">5</span></span>
+            <div class="mui-media-body">Email</div></a></li>
+    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+            <span class="mui-icon mui-icon-chatbubble"></span>
+            <div class="mui-media-body">Chat</div></a></li>
+    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+            <span class="mui-icon mui-icon-location"></span>
+            <div class="mui-media-body">location</div></a></li>
+</ul>
 <div id="bottomPopover" class="mui-popover mui-popover-bottom">
 	<div class="mui-popover-arrow"></div>
 	<div class="mui-scroll-wrapper div-start">
@@ -207,6 +228,30 @@ mui('.mui-scroll-wrapper').scroll(); //滑塊滑動
 
 
 
+<<<<<<< HEAD
+	$('.a-start').click(function() {
+		$.get('/api/index/startlist', function(data) {
+			if (data.code == 200) {
+				if (data.data.length == 0) {
+					mui.toast('请新添加打卡项目');
+				} else {
+					var clone_block_start = $('.clone_block-start');
+					$.each(data.data, function(key, val) {
+						var clo = clone_block_start.clone(true);
+						$(clo).removeClass('clone_block-start');
+						var href_link = 'index/actions/'+val.code;
+						$(clo).children('a').attr('href', href_link);
+						$(clo).children('span').text(val.name);
+						$(clo).show();
+						$('.ul-start').append(clo);
+					});
+				}
+			}
+		});
+	});
+
+=======
+>>>>>>> refs/remotes/origin/master
 </script>
 <script type="text/javascript">
 	now = new Date();
