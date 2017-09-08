@@ -22,7 +22,7 @@
                 </a>
               
                 <img src="{{ asset('note/images/logo.png') }}" width="35" height="35" class="imgStyle">
-                <span class="navbar-brand headerTitle">學習系統</span>
+                <span class="navbar-brand headerTitle">学生管理系統</span>
                 <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user"> <i class="fa fa-cog"></i>
         </a>
             </div>
@@ -57,38 +57,44 @@
                 <nav class="nav-primary hidden-xs">
 
                     <ul class="nav">
-                        <li class="active">
+                    <li class="active">
                       <a href="index.html" class="active">
                         <i class="fa fa-dashboard icon"><b class="bg-danger"></b></i> 
                         <span>歷史記錄區</span>
                       </a>
                     </li>
-                    <li >
+                    <li>
                       <a href="#layout" >
                         <i class="fa fa-columns icon"><b class="bg-warning"></b></i> 
                         <span class="pull-right">
                           <i class="fa fa-angle-down text"></i>
                           <i class="fa fa-angle-up text-active"></i>
                         </span>
-                        <span>管理</span>
+                        <span>打卡活动</span>
                       </a>
                       <ul class="nav lt">
-                        <li >
+                        <li>
                           <a href="layout-c.html" >
                             <i class="fa fa-angle-right"></i>
-                            <span>打卡活動管理</span>
+                            <span>用户列表</span>
                           </a>
                         </li>
-                        <li >
+                        <li>
                           <a href="layout-r.html" >
                             <i class="fa fa-angle-right"></i>
-                            <span>倒計時管理</span>
+                            <span>初始数据设置</span>
                           </a>
                         </li>
-                        <li >
+                        <li>
                           <a href="layout-h.html" >
                             <i class="fa fa-angle-right"></i>
                             <span>定時任務管理</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="layout-h.html" >
+                            <i class="fa fa-angle-right"></i>
+                            <span>历史数据统计</span>
                           </a>
                         </li>
                       </ul>

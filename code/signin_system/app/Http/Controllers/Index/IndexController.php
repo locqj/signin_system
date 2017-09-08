@@ -21,15 +21,12 @@ class IndexController extends Controller
 
     public function index()
     {	
-    	$dist = $this->preIndex();
-    	 //$dist = true;
-    	if ($dist) {
-            $user = clientuser()->findDetails(session('user_id'));
-            // $user = clientuser()->findDetails('xxx');
-            $index = imagelog()->list_index();
-            $count = imagelog()->get_count();
-	        return view('index.index', compact('user', 'index', 'count'));
-    	}
+        $this->distUrl();
+        $user = clientuser()->findDetails(session('user_id'));
+        // $user = clientuser()->findDetails('xxx');
+        $index = imagelog()->list_index();
+        $count = imagelog()->get_count();
+        return view('index.index', compact('user', 'index', 'count'));
     }
 
 
@@ -49,6 +46,20 @@ class IndexController extends Controller
     		$data = clientuser()->add($openid, $avatar, $nickname);
     	}
     	return 1;
+    }
+
+    /**
+     * [distUrl 判断路由是本地开发环境还是服务器实际应用环境]
+     * @return [type] [description]
+     */
+    public function distUrl()
+    {
+        $url = $_SERVER['HTTP_HOST'];
+        if ($url == 'localhost:8000') {
+            session(['user_id' => 'xxx']);
+        } else {
+            $this->preIndex();
+        }
     }
 
 }

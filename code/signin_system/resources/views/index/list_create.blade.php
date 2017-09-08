@@ -311,7 +311,7 @@
 				success:function(data){
 					if (data.code == 201) {
 						//mui.alert('添加成功');
-						window.location.href = '/index/listlog';
+						window.location.href = '/index';
 					} else if (data.code == 400) {
 						mui.toast(data.msg);
 					}

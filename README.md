@@ -32,10 +32,11 @@
 1. git clone https://github.com/locqj/signin_system.git
 2. cd signin_system/code/signin_system
 3. cp .env.example .env
-4. php artisan key:generate 生成laravel key
+4. composer install
 5. 打開.env配置相應數據庫等信息
-6. composer install
+6. php artisan key:generate 生成laravel key
 7. npm（cnpm， yarm） install
 8. chmod -R 755 stroage bootstrap
 9. cd ../db mysql -u xxx -p dbname < xxx.sql
-9. php artisan serve
+10. php artisan storage:link(实际上就是 ln -s /home/wwwroot/default/xxx/code/signin_system/storage/app/pulic /home/wwwroot/default/xxx/code/signin_system/public/storage ) 软链接 
+11. php artisan serve

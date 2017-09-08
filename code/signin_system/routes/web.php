@@ -71,8 +71,8 @@ function imagelog() {
 Route::get('/', function () {
     return view('welcome');
 });
-/*後臺首頁*/
-Route::get('admin/index', 'AdminIndexController@index');
+
+/*--------------------------------------打卡用户端------------------------------------------*/
 
 /*首頁*/
 Route::get('call', 'Index\IndexController@call'); //請求跳轉
@@ -83,7 +83,7 @@ Route::get('index/actions/{code}', 'Index\ActionsController@actions');
 Route::get('index/taglog/{code}', 'Index\TagLogController@index');
 /*查看項目*/
 Route::get('index/listlog', function() {
-	return view('index.list_log');
+    return view('index.list_log');
 });
 /*更多*/
 Route::get('index/more', function() {
@@ -100,13 +100,12 @@ Route::get('index/listtag', function() {
 });
 /*添加項目表單頁*/
 Route::get('index/addaction', function() {
-	return view('index.list_create');
+    return view('index.list_create');
 });
 /*倒计时页面*/
 Route::get('index/daysmatter', function() {
     return view('index.list_daysmatter');
 });
-
 
 
 /*个人记录页*/
@@ -158,3 +157,9 @@ Route::get('authcallback', 'OAuthController@authCallback'); //回調
 
 
 Route::get('test', 'Index\PersionLogController@getPersonLog');
+
+/*--------------------------------------打卡用户端end------------------------------------------*/
+/*--------------------------------------後臺首頁-----------------------------------------------*/
+Route::get('admin/index', 'AdminIndexController@index');
+
+/*--------------------------------------後臺首頁end--------------------------------------------*/

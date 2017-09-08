@@ -23,7 +23,7 @@ class DaysMatterController extends Controller
 			->get();
 		foreach ($data as $key => $value) {
 			$value->daymatter = $this->getDay($value->month, $value->day, $value->year);
-            if ($value->daymatter == 0) {
+            if ($value->daymatter <= 0) {
                 unset($data[$key]);
             }
 		}
