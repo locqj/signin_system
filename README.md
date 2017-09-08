@@ -25,26 +25,26 @@
 ```
 ### 预览
 * 注册测试号，配置安全域名
-![](ReadmeImg/0)
+![](ReadmeImg/0.PNG)
 * 项目首页
-![](ReadmeImg/1)
+![](ReadmeImg/1.PNG)
 * 点击打卡，如果项目有时间限制，会显示当前时段所属项目
-![](ReadmeImg/2)
+![](ReadmeImg/2.PNG)
 * 打卡活动页，如果项目设置有打卡时间，倒计时完后才能调到打卡记录
-![](ReadmeImg/3)
+![](ReadmeImg/3.PNG)
 * 打卡完毕，记录打卡详情
-![](ReadmeImg/4)
-![](ReadmeImg/5)
+![](ReadmeImg/4.PNG)
+![](ReadmeImg/5.PNG)
 * 项目首页点击更多，用户自定义操作
-![](ReadmeImg/6)
+![](ReadmeImg/6.PNG)
 * 新建打卡项目
-![](ReadmeImg/9)
-![](ReadmeImg/10)
-![](ReadmeImg/11)
+![](ReadmeImg/9.PNG)
+![](ReadmeImg/10.PNG)
+![](ReadmeImg/11.PNG)
 * 查看打卡项目
-![](ReadmeImg/8)
+![](ReadmeImg/8.PNG)
 * 打卡个人记录
-![](ReadmeImg/12)
+![](ReadmeImg/12.PNG)
 
 
 
