@@ -26,9 +26,9 @@
 ### 预览
 * 注册测试号，配置安全域名
 
-![注册测试号，配置安全域名](ReadmeImg/0.PNG =100)
+![注册测试号，配置安全域名](ReadmeImg/0.PNG)
 * 项目首页
-![项目首页](ReadmeImg/1.PNG =100) 
+![项目首页](ReadmeImg/1.PNG) 
 * 点击打卡，如果项目有时间限制，会显示当前时段所属项目
 ![点击打卡，如果项目有时间限制，会显示当前时段所属项目](ReadmeImg/2.PNG) 
 * 打卡活动页，如果项目设置有打卡时间，倒计时完后才能调到打卡记录
@@ -58,4 +58,4 @@
 8. chmod -R 755 stroage bootstrap
 9. cd ../db mysql -u xxx -p dbname < xxx.sql
 10. php artisan storage:link(实际上就是 ln -s /home/wwwroot/default/xxx/code/signin_system/storage/app/pulic /home/wwwroot/default/xxx/code/signin_system/public/storage ) 软链接 
-11. php artisan servesan servean serve
+11. php artisan servesan servean servevean serve
